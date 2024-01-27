@@ -43,7 +43,7 @@ import { FwbPagination } from 'flowbite-vue'
 const currentPage = ref(1)
 
 const mainInfo = ref(0)
-const store = useCart();
+const cartStore = useCart();
 
 const totalPages = ref(1)
 
@@ -84,8 +84,7 @@ watch(currentPage, () => {
 await update()
 
 function addToCart(value) {
-  console.log(store)
-  store.addToCart(value);
+  cartStore.addToCart(value);
 }
 
 </script>
