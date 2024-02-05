@@ -1,0 +1,232 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "brand": "Kia",
+      "model": "Carnival",
+      "year": "2022",
+      "power": "249",
+      "kuzov": "Кроссвэн",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Красный",
+      "price": 4934900,
+      "image": {
+        "1": "/public/id1/1.png",
+        "2": "/public/id1/2.png",
+        "3": "/public/id1/3.png",
+        "4": "/public/id1/4.png",
+        "5": "/public/id1/5.png"
+      }
+    },
+    {
+      "id": 2,
+      "brand": "Kia",
+      "model": "Ceed",
+      "year": "2022",
+      "power": "128",
+      "kuzov": "Хэтчбек",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Черный",
+      "price": 2614900,
+      "image": {
+        "1": "/public/id2/1.png",
+        "2": "/public/id2/2.png",
+        "3": "/public/id2/3.png",
+        "4": "/public/id2/4.png",
+        "5": "/public/id2/5.png"
+      }
+    },
+    {
+      "id": 3,
+      "brand": "Kia",
+      "model": "Ceed SW",
+      "year": "2022",
+      "power": "128",
+      "kuzov": "Универсал",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Черный",
+      "price": 3194900,
+      "image": {
+        "1": "/public/id3/1.png",
+        "2": "/public/id3/2.png",
+        "3": "/public/id3/3.png",
+        "4": "/public/id3/4.png",
+        "5": "/public/id3/5.png"
+      }
+    },
+    {
+      "id": 4,
+      "brand": "Kia",
+      "model": "Cerato",
+      "year": "2022",
+      "power": "128",
+      "kuzov": "Седан",
+      "transmission": "МКПП",
+      "engine": "Бензин",
+      "color": "Серый",
+      "price": 2970000,
+      "image": {
+        "1": "/public/id4/1.png",
+        "2": "/public/id4/2.png",
+        "3": "/public/id4/3.png",
+        "4": "/public/id4/5.png",
+        "5": "/public/id4/5.png"
+      }
+    },
+    {
+      "id": 5,
+      "brand": "Kia",
+      "model": "K5",
+      "year": "2022",
+      "power": "150",
+      "kuzov": "Седан",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Белый",
+      "price": 2734900,
+      "image": {
+        "1": "/public/id5/1.png",
+        "2": "/public/id5/2.png",
+        "3": "/public/id5/3.png",
+        "4": "/public/id5/4.png",
+        "5": "/public/id5/5.png"
+      }
+    },
+    {
+      "id": 6,
+      "brand": "Kia",
+      "model": "K9",
+      "year": "2022",
+      "power": "249",
+      "kuzov": "Седан",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Черный",
+      "price": 7374900,
+      "image": {
+        "1": "/public/id6/1.png",
+        "2": "/public/id6/2.png",
+        "3": "/public/id6/3.png",
+        "4": "/public/id6/4.png",
+        "5": "/public/id6/5.png"
+      }
+    },
+    {
+      "id": 7,
+      "brand": "Kia",
+      "model": "Rio X",
+      "year": "2022",
+      "power": "123",
+      "kuzov": "Хэтчбек",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Коричневый",
+      "price": 2545900,
+      "image": {
+        "1": "/public/id7/1.png",
+        "2": "/public/id7/2.png",
+        "3": "/public/id7/3.png",
+        "4": "/public/id7/4.png",
+        "5": "/public/id7/5.png"
+      }
+    },
+    {
+      "id": 8,
+      "brand": "Kia",
+      "model": "Seltos",
+      "year": "2022",
+      "power": "149",
+      "kuzov": "Кроссовер",
+      "transmission": "Вариатор",
+      "engine": "Бензин",
+      "color": "Синий",
+      "price": 2799900,
+      "image": {
+        "1": "/public/id8/1.png",
+        "2": "/public/id8/2.png",
+        "3": "/public/id8/3.png",
+        "4": "/public/id8/4.png",
+        "5": "/public/id8/5.png"
+      }
+    },
+    {
+      "id": 9,
+      "brand": "Kia",
+      "model": "Sorento",
+      "year": "2022",
+      "power": "179",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Красный",
+      "price": 4344900,
+      "image": {
+        "1": "/public/id9/1.png",
+        "2": "/public/id9/2.png",
+        "3": "/public/id9/3.png",
+        "4": "/public/id9/4.png",
+        "5": "/public/id9/5.png"
+      }
+    },
+    {
+      "id": 10,
+      "brand": "Kia",
+      "model": "Soul",
+      "year": "2022",
+      "power": "123",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Синий",
+      "price": 2204900,
+      "image": {
+        "1": "/public/id10/1.png",
+        "2": "/public/id10/2.png",
+        "3": "/public/id10/3.png",
+        "4": "/public/id10/4.png",
+        "5": "/public/id10/5.png"
+      }
+    },
+    {
+      "id": 11,
+      "brand": "Kia",
+      "model": "Sportage",
+      "year": "2022",
+      "power": "190",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Черный",
+      "price": 4823200,
+      "image": {
+        "1": "/public/id11/1.png",
+        "2": "/public/id11/2.png",
+        "3": "/public/id11/3.png",
+        "4": "/public/id11/4.png",
+        "5": "/public/id11/5.png"
+      }
+    },
+    {
+      "id": 12,
+      "brand": "Kia",
+      "model": "Stinger",
+      "year": "2022",
+      "power": "247",
+      "kuzov": "Седан",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Синий",
+      "price": 5374900,
+      "image": {
+        "1": "/public/id12/1.png",
+        "2": "/public/id12/2.png",
+        "3": "/public/id12/3.png",
+        "4": "/public/id12/4.png",
+        "5": "/public/id12/5.png"
+      }
+    }
+  ]
+}
