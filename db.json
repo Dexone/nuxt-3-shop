@@ -246,6 +246,177 @@
         "4": "/public/id13/4.png",
         "5": "/public/id13/5.png"
       }
+    },
+    {
+      "id": 14,
+      "brand": "Hyundai",
+      "model": "Solaris",
+      "year": "2022",
+      "power": "123",
+      "kuzov": "Седан",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Красный",
+      "price": 2108000,
+      "image": {
+        "1": "/public/id14/1.png",
+        "2": "/public/id14/2.png",
+        "3": "/public/id14/3.png",
+        "4": "/public/id14/4.png",
+        "5": "/public/id14/5.png"
+      }
+    },
+    {
+      "id": 15,
+      "brand": "BMW",
+      "model": "X7",
+      "year": "2023",
+      "power": "340",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Белый",
+      "price": 9350000,
+      "image": {
+        "1": "/public/id15/1.png",
+        "2": "/public/id15/2.png",
+        "3": "/public/id15/3.png",
+        "4": "/public/id15/4.png",
+        "5": "/public/id15/5.png"
+      }
+    },
+    {
+      "id": 16,
+      "brand": "BMW",
+      "model": "X6",
+      "year": "2023",
+      "power": "530",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Серый",
+      "price": 8400000,
+      "image": {
+        "1": "/public/id16/1.png",
+        "2": "/public/id16/2.png",
+        "3": "/public/id16/3.png",
+        "4": "/public/id16/4.png",
+        "5": "/public/id16/5.png"
+      }
+    },
+    {
+      "id": 17,
+      "brand": "BMW",
+      "model": "X2",
+      "year": "2023",
+      "power": "192",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Дизель",
+      "color": "Синий",
+      "price": 3520000,
+      "image": {
+        "1": "/public/id17/1.png",
+        "2": "/public/id17/2.png",
+        "3": "/public/id17/3.png",
+        "4": "/public/id17/4.png",
+        "5": "/public/id17/5.png"
+      }
+    },
+    {
+      "id": 18,
+      "brand": "BMW",
+      "model": "3",
+      "year": "2023",
+      "power": "190",
+      "kuzov": "Седан",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Белый",
+      "price": 3930000,
+      "image": {
+        "1": "/public/id18/1.png",
+        "2": "/public/id18/2.png",
+        "3": "/public/id18/3.png",
+        "4": "/public/id18/4.png",
+        "5": "/public/id18/5.png"
+      }
+    },
+    {
+      "id": 19,
+      "brand": "BMW",
+      "model": "7",
+      "year": "2023",
+      "power": "280",
+      "kuzov": "Седан",
+      "transmission": "АКПП",
+      "engine": "Электро",
+      "color": "Синий",
+      "price": 11090000,
+      "image": {
+        "1": "/public/id19/1.png",
+        "2": "/public/id19/2.png",
+        "3": "/public/id19/3.png",
+        "4": "/public/id19/4.png",
+        "5": "/public/id19/5.png"
+      }
+    },
+    {
+      "id": 20,
+      "brand": "Hyundai",
+      "model": "Creta",
+      "year": "2022",
+      "power": "123",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Красный",
+      "price": 2904900,
+      "image": {
+        "1": "/public/id20/1.png",
+        "2": "/public/id20/2.png",
+        "3": "/public/id20/3.png",
+        "4": "/public/id20/4.png",
+        "5": "/public/id20/5.png"
+      }
+    },
+    {
+      "id": 21,
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "year": "2022",
+      "power": "186",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Серый",
+      "price": 4449900,
+      "image": {
+        "1": "/public/id21/1.png",
+        "2": "/public/id21/2.png",
+        "3": "/public/id21/3.png",
+        "4": "/public/id21/4.png",
+        "5": "/public/id21/5.png"
+      }
+    },
+    {
+      "id": 22,
+      "brand": "Hyundai",
+      "model": "Santa FE",
+      "year": "2022",
+      "power": "180",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Серый",
+      "price": 5320900,
+      "image": {
+        "1": "/public/id22/1.png",
+        "2": "/public/id22/2.png",
+        "3": "/public/id22/3.png",
+        "4": "/public/id22/4.png",
+        "5": "/public/id22/5.png"
+      }
     }
   ]
 }

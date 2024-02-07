@@ -87,7 +87,7 @@ function ffright() {
 
 
             <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Kia {{ product.model }}</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ product.brand }} {{ product.model }}</h5>
                 <p class="mb-3 font-normal text-gray-700 ">Год: {{ product.year }}</p>
                 <p class="mb-3 font-normal text-gray-700 ">Мощность: {{ product.power }} л/с</p>
                 <p class="mb-3 font-normal text-gray-700 ">Тип кузова: {{ product.kuzov }}</p>

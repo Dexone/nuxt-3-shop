@@ -15,7 +15,7 @@
       <ul class="py-2 text-sm text-gray-700">
         <li>
           <div class="slider-demo-block">
-            <el-slider v-model="powerVM" range show-stops :max="300" :min="100" el-switch-color />
+            <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color />
           </div>
         </li>
       </ul>
@@ -90,10 +90,10 @@
           </NuxtLink>
         </h5>
 
-        <p class="mb-3 h-5 text-gray-700">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
+        <p class="mb-3 h-10 text-gray-700">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
           main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
         <div class="max-h-44">
-          <img v-bind:src="main.image[1]" class="rounded-t-lg -ml-9" />
+          <img v-bind:src="main.image[1]" class="rounded-t-lg -ml-5" />
         </div>
 
         <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">
@@ -133,7 +133,7 @@ const showColor = ref(true)
 
 
 
-const powerVM = ref([100, 300])
+const powerVM = ref([100, 550])
 
 const colorsVM = ref([])
 
@@ -146,7 +146,7 @@ const totalPages = ref(3)
 
 
 const otPriceVM = ref(2000000)
-const doPriceVM = ref(9000000)
+const doPriceVM = ref(12000000)
 
 
 let colors = ["Черный", "Красный", "Серый", "Белый", "Коричневый", "Синий", "Серебристый"]
