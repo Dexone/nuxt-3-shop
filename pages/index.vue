@@ -78,7 +78,7 @@
 
   <div class="max-w-7xl mx-auto">
 
- 
+
 
 
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow m-5 inline-flex "
@@ -86,16 +86,16 @@
       <div class="p-5">
         <h5 class="mb-2 text-1xl font-bold text-gray-900">
           <NuxtLink :to="`/product/${main.id}`">
-            {{ main.model }} {{ main.year }}
+            {{ main.brand }} {{ main.model }}
           </NuxtLink>
         </h5>
 
-        <p class="mb-3 h-5 text-gray-700">{{ main.power }}л.с. / {{ main.engine }} / {{
+        <p class="mb-3 h-5 text-gray-700">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
           main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
         <div class="max-h-44">
           <img v-bind:src="main.image[1]" class="rounded-t-lg -ml-9" />
         </div>
- 
+
         <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">
           {{ main.price }} ₽
         </h5>
@@ -191,6 +191,7 @@ async function update() {
   const mainData = data.value.map((item, index) => {
     return {
       id: data.value[index].id,
+      brand: data.value[index].brand,
       model: data.value[index].model,
       year: data.value[index].year,
       power: data.value[index].power,

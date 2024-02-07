@@ -227,6 +227,25 @@
         "4": "/public/id12/4.png",
         "5": "/public/id12/5.png"
       }
+    },
+    {
+      "id": 13,
+      "brand": "Volkswagen",
+      "model": "Tiguan",
+      "year": "2024",
+      "power": "150",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Черный",
+      "price": 4950000,
+      "image": {
+        "1": "/public/id13/1.png",
+        "2": "/public/id13/2.png",
+        "3": "/public/id13/3.png",
+        "4": "/public/id13/4.png",
+        "5": "/public/id13/5.png"
+      }
     }
   ]
 }

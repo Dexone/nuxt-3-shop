@@ -34,6 +34,9 @@ function ffright() {
 </script>
 
 <template>
+    <div style="z-index: 10; margin: 100px;">12312</div>
+
+
     <div v-for="image in imageData">
 
 

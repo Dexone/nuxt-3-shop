@@ -8,7 +8,7 @@
 
                     <img src="../public/kia.png" class="h-8" />
 
-                    <button data-collapse-toggle="navbar-default" 
+                    <button data-collapse-toggle="navbar-default"
                         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
                         aria-controls="navbar-default" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
