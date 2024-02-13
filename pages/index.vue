@@ -118,8 +118,18 @@
 
         <a v-if="tfArray[main.id]"><button
             @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm + main.price, cartStore.cart[compareIndex[main.id]].amount++">+</button>{{
-              cartStore.cart[compareIndex[main.id]].amount }}<button
-            @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, cartStore.cart[compareIndex[main.id]].amount--">-</button></a>
+              cartStore.cart[compareIndex[main.id]].amount }}
+
+
+
+          <a v-if="cartStore.cart[compareIndex[main.id]].amount === 1">
+            <button @click="cartStore.deleteCart(compareIndex[main.id])">Удалить</button>
+          </a>
+          <a v-else> <button
+              @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, cartStore.cart[compareIndex[main.id]].amount--">-</button></a>
+
+
+        </a>
         <div v-else><button
             @click="addToCart(main), vfor(), cartStore.cart[compareIndex[main.id]].amount++">Купить</button>
         </div>
@@ -147,12 +157,16 @@ const showColor = ref(true)
 
 
 
+
+
+
 let tfArray = ref([]) //массив true false нахождения машины в корзине
-let compareIndex = ref([]) //кол-во машин в корзине в каждой карточке
+let compareIndex = ref([]) // сопоставление массивов: индекс здесь = индекс в корзине
 function vfor() {
   let idArray = []
   for (let i = 0; i < cartStore.cart.length; i++) {
     idArray.push(cartStore.cart[i].id)
+
   }
   tfArray.value.length = 0
   compareIndex.value.length = 0
@@ -162,7 +176,7 @@ function vfor() {
     compareIndex.value.push(idArray.indexOf(a))
     a++
   }
-
+console.log(cartStore.cart)
 }
 
 const powerVM = ref([100, 550])
@@ -242,7 +256,9 @@ async function update() {
   mainInfo.value = mainData
 }
 
-
+function deleteCart(index) {
+  cartStore.deleteCart(index)
+}
 
 
 watch(currentPage, () => {
@@ -255,8 +271,8 @@ function addToCart(value) {
 }
 
 
-function syncSumm(value) {
-  cartStore.syncSumm(value);
+function syncSumm() {
+  cartStore.syncSumm();
 }
 
 

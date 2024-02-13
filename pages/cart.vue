@@ -5,6 +5,14 @@ const cartStore = useCart();
 function deleteCart(index) {
   cartStore.deleteCart(index)
 }
+
+
+function syncSumm() {
+  cartStore.syncSumm();
+}
+watch(cartStore.cart, () => {
+  syncSumm()
+})
 </script>
 
 
