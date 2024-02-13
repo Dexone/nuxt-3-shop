@@ -5,15 +5,10 @@ const cartStore = useCart();
 function deleteCart(index) {
   cartStore.deleteCart(index)
 }
-
-function deleteSumm(value) {
-  cartStore.deleteSumm(value)
-}
 </script>
 
 
 <template>
-
   <div class="max-w-4xl mx-auto mt-14">
     <div class="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 ">
       <div class="flex items-center justify-between mb-4">
@@ -41,12 +36,20 @@ function deleteSumm(value) {
                     main.transmission }} / {{ main.kuzov }} / {{ main.color }}
                 </p>
               </div>
+
+              <!-- <button
+                @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm + main.price, addSumm(main), cartStore.cart[compareIndex[main.id]].amount++">+</button>{{
+                  cartStore.cart[compareIndex[main.id]].amount }}<button
+                @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, deleteSumm(main), cartStore.cart[compareIndex[main.id]].amount--">-</button> -->
+
+
+
               <div class="inline-flex text-xl items-center text-base font-semibold text-gray-900 ">
-                {{ main.price }} ₽
+                {{ main.amountSumm }} ₽
 
 
 
-                <button @click="deleteCart(index), deleteSumm(main)" type="button"
+                <button @click="deleteCart(index)" type="button"
                   class="text-blue-700  font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center">
                   <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
@@ -62,7 +65,6 @@ function deleteSumm(value) {
     </div>
 
   </div>
-
 </template>
 
 

@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": 0,
       "brand": "Kia",
       "model": "Carnival",
       "year": "2022",
@@ -11,6 +11,25 @@
       "engine": "Бензин",
       "color": "Красный",
       "price": 4934900,
+      "image": {
+        "1": "/public/id0/1.png",
+        "2": "/public/id0/2.png",
+        "3": "/public/id0/3.png",
+        "4": "/public/id0/4.png",
+        "5": "/public/id0/5.png"
+      }
+    },
+    {
+      "id": 1,
+      "brand": "Kia",
+      "model": "Ceed",
+      "year": "2022",
+      "power": "128",
+      "kuzov": "Хэтчбек",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Черный",
+      "price": 2614900,
       "image": {
         "1": "/public/id1/1.png",
         "2": "/public/id1/2.png",
@@ -22,14 +41,14 @@
     {
       "id": 2,
       "brand": "Kia",
-      "model": "Ceed",
+      "model": "Ceed SW",
       "year": "2022",
       "power": "128",
-      "kuzov": "Хэтчбек",
+      "kuzov": "Универсал",
       "transmission": "АКПП",
       "engine": "Бензин",
       "color": "Черный",
-      "price": 2614900,
+      "price": 3194900,
       "image": {
         "1": "/public/id2/1.png",
         "2": "/public/id2/2.png",
@@ -41,25 +60,6 @@
     {
       "id": 3,
       "brand": "Kia",
-      "model": "Ceed SW",
-      "year": "2022",
-      "power": "128",
-      "kuzov": "Универсал",
-      "transmission": "АКПП",
-      "engine": "Бензин",
-      "color": "Черный",
-      "price": 3194900,
-      "image": {
-        "1": "/public/id3/1.png",
-        "2": "/public/id3/2.png",
-        "3": "/public/id3/3.png",
-        "4": "/public/id3/4.png",
-        "5": "/public/id3/5.png"
-      }
-    },
-    {
-      "id": 4,
-      "brand": "Kia",
       "model": "Cerato",
       "year": "2022",
       "power": "128",
@@ -69,15 +69,15 @@
       "color": "Серый",
       "price": 2970000,
       "image": {
-        "1": "/public/id4/1.png",
-        "2": "/public/id4/2.png",
-        "3": "/public/id4/3.png",
-        "4": "/public/id4/5.png",
-        "5": "/public/id4/5.png"
+        "1": "/public/id3/1.png",
+        "2": "/public/id3/2.png",
+        "3": "/public/id3/3.png",
+        "4": "/public/id3/5.png",
+        "5": "/public/id3/5.png"
       }
     },
     {
-      "id": 5,
+      "id": 4,
       "brand": "Kia",
       "model": "K5",
       "year": "2022",
@@ -87,6 +87,25 @@
       "engine": "Бензин",
       "color": "Белый",
       "price": 2734900,
+      "image": {
+        "1": "/public/id4/1.png",
+        "2": "/public/id4/2.png",
+        "3": "/public/id4/3.png",
+        "4": "/public/id4/4.png",
+        "5": "/public/id4/5.png"
+      }
+    },
+    {
+      "id": 5,
+      "brand": "Kia",
+      "model": "K9",
+      "year": "2022",
+      "power": "249",
+      "kuzov": "Седан",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Черный",
+      "price": 7374900,
       "image": {
         "1": "/public/id5/1.png",
         "2": "/public/id5/2.png",
@@ -98,14 +117,14 @@
     {
       "id": 6,
       "brand": "Kia",
-      "model": "K9",
+      "model": "Rio X",
       "year": "2022",
-      "power": "249",
-      "kuzov": "Седан",
+      "power": "123",
+      "kuzov": "Хэтчбек",
       "transmission": "АКПП",
       "engine": "Бензин",
-      "color": "Черный",
-      "price": 7374900,
+      "color": "Коричневый",
+      "price": 2545900,
       "image": {
         "1": "/public/id6/1.png",
         "2": "/public/id6/2.png",
@@ -117,14 +136,14 @@
     {
       "id": 7,
       "brand": "Kia",
-      "model": "Rio X",
+      "model": "Seltos",
       "year": "2022",
-      "power": "123",
-      "kuzov": "Хэтчбек",
-      "transmission": "АКПП",
+      "power": "149",
+      "kuzov": "Кроссовер",
+      "transmission": "Вариатор",
       "engine": "Бензин",
-      "color": "Коричневый",
-      "price": 2545900,
+      "color": "Синий",
+      "price": 2799900,
       "image": {
         "1": "/public/id7/1.png",
         "2": "/public/id7/2.png",
@@ -136,14 +155,14 @@
     {
       "id": 8,
       "brand": "Kia",
-      "model": "Seltos",
+      "model": "Sorento",
       "year": "2022",
-      "power": "149",
+      "power": "179",
       "kuzov": "Кроссовер",
-      "transmission": "Вариатор",
+      "transmission": "АКПП",
       "engine": "Бензин",
-      "color": "Синий",
-      "price": 2799900,
+      "color": "Красный",
+      "price": 4344900,
       "image": {
         "1": "/public/id8/1.png",
         "2": "/public/id8/2.png",
@@ -155,14 +174,14 @@
     {
       "id": 9,
       "brand": "Kia",
-      "model": "Sorento",
+      "model": "Soul",
       "year": "2022",
-      "power": "179",
+      "power": "123",
       "kuzov": "Кроссовер",
       "transmission": "АКПП",
       "engine": "Бензин",
-      "color": "Красный",
-      "price": 4344900,
+      "color": "Синий",
+      "price": 2204900,
       "image": {
         "1": "/public/id9/1.png",
         "2": "/public/id9/2.png",
@@ -174,14 +193,14 @@
     {
       "id": 10,
       "brand": "Kia",
-      "model": "Soul",
+      "model": "Sportage",
       "year": "2022",
-      "power": "123",
+      "power": "190",
       "kuzov": "Кроссовер",
       "transmission": "АКПП",
       "engine": "Бензин",
-      "color": "Синий",
-      "price": 2204900,
+      "color": "Черный",
+      "price": 4823200,
       "image": {
         "1": "/public/id10/1.png",
         "2": "/public/id10/2.png",
@@ -193,14 +212,14 @@
     {
       "id": 11,
       "brand": "Kia",
-      "model": "Sportage",
+      "model": "Stinger",
       "year": "2022",
-      "power": "190",
-      "kuzov": "Кроссовер",
+      "power": "247",
+      "kuzov": "Седан",
       "transmission": "АКПП",
       "engine": "Бензин",
-      "color": "Черный",
-      "price": 4823200,
+      "color": "Синий",
+      "price": 5374900,
       "image": {
         "1": "/public/id11/1.png",
         "2": "/public/id11/2.png",
@@ -211,25 +230,6 @@
     },
     {
       "id": 12,
-      "brand": "Kia",
-      "model": "Stinger",
-      "year": "2022",
-      "power": "247",
-      "kuzov": "Седан",
-      "transmission": "АКПП",
-      "engine": "Бензин",
-      "color": "Синий",
-      "price": 5374900,
-      "image": {
-        "1": "/public/id12/1.png",
-        "2": "/public/id12/2.png",
-        "3": "/public/id12/3.png",
-        "4": "/public/id12/4.png",
-        "5": "/public/id12/5.png"
-      }
-    },
-    {
-      "id": 13,
       "brand": "Volkswagen",
       "model": "Tiguan",
       "year": "2024",
@@ -240,15 +240,15 @@
       "color": "Черный",
       "price": 4950000,
       "image": {
-        "1": "/public/id13/1.png",
-        "2": "/public/id13/2.png",
-        "3": "/public/id13/3.png",
-        "4": "/public/id13/4.png",
-        "5": "/public/id13/5.png"
+        "1": "/public/id12/1.png",
+        "2": "/public/id12/2.png",
+        "3": "/public/id12/3.png",
+        "4": "/public/id12/4.png",
+        "5": "/public/id12/5.png"
       }
     },
     {
-      "id": 14,
+      "id": 13,
       "brand": "Hyundai",
       "model": "Solaris",
       "year": "2022",
@@ -258,6 +258,25 @@
       "engine": "Бензин",
       "color": "Красный",
       "price": 2108000,
+      "image": {
+        "1": "/public/id13/1.png",
+        "2": "/public/id13/2.png",
+        "3": "/public/id13/3.png",
+        "4": "/public/id13/4.png",
+        "5": "/public/id13/5.png"
+      }
+    },
+    {
+      "id": 14,
+      "brand": "BMW",
+      "model": "X7",
+      "year": "2023",
+      "power": "340",
+      "kuzov": "Кроссовер",
+      "transmission": "АКПП",
+      "engine": "Бензин",
+      "color": "Белый",
+      "price": 9350000,
       "image": {
         "1": "/public/id14/1.png",
         "2": "/public/id14/2.png",
@@ -269,14 +288,14 @@
     {
       "id": 15,
       "brand": "BMW",
-      "model": "X7",
+      "model": "X6",
       "year": "2023",
-      "power": "340",
+      "power": "530",
       "kuzov": "Кроссовер",
       "transmission": "АКПП",
       "engine": "Бензин",
-      "color": "Белый",
-      "price": 9350000,
+      "color": "Серый",
+      "price": 8400000,
       "image": {
         "1": "/public/id15/1.png",
         "2": "/public/id15/2.png",
@@ -288,14 +307,14 @@
     {
       "id": 16,
       "brand": "BMW",
-      "model": "X6",
+      "model": "X2",
       "year": "2023",
-      "power": "530",
+      "power": "192",
       "kuzov": "Кроссовер",
       "transmission": "АКПП",
-      "engine": "Бензин",
-      "color": "Серый",
-      "price": 8400000,
+      "engine": "Дизель",
+      "color": "Синий",
+      "price": 3520000,
       "image": {
         "1": "/public/id16/1.png",
         "2": "/public/id16/2.png",
@@ -307,14 +326,14 @@
     {
       "id": 17,
       "brand": "BMW",
-      "model": "X2",
+      "model": "3",
       "year": "2023",
-      "power": "192",
-      "kuzov": "Кроссовер",
+      "power": "190",
+      "kuzov": "Седан",
       "transmission": "АКПП",
-      "engine": "Дизель",
-      "color": "Синий",
-      "price": 3520000,
+      "engine": "Бензин",
+      "color": "Белый",
+      "price": 3930000,
       "image": {
         "1": "/public/id17/1.png",
         "2": "/public/id17/2.png",
@@ -326,14 +345,14 @@
     {
       "id": 18,
       "brand": "BMW",
-      "model": "3",
+      "model": "7",
       "year": "2023",
-      "power": "190",
+      "power": "280",
       "kuzov": "Седан",
       "transmission": "АКПП",
-      "engine": "Бензин",
-      "color": "Белый",
-      "price": 3930000,
+      "engine": "Электро",
+      "color": "Синий",
+      "price": 11090000,
       "image": {
         "1": "/public/id18/1.png",
         "2": "/public/id18/2.png",
@@ -344,15 +363,15 @@
     },
     {
       "id": 19,
-      "brand": "BMW",
-      "model": "7",
-      "year": "2023",
-      "power": "280",
-      "kuzov": "Седан",
+      "brand": "Hyundai",
+      "model": "Creta",
+      "year": "2022",
+      "power": "123",
+      "kuzov": "Кроссовер",
       "transmission": "АКПП",
-      "engine": "Электро",
-      "color": "Синий",
-      "price": 11090000,
+      "engine": "Бензин",
+      "color": "Красный",
+      "price": 2904900,
       "image": {
         "1": "/public/id19/1.png",
         "2": "/public/id19/2.png",
@@ -364,14 +383,14 @@
     {
       "id": 20,
       "brand": "Hyundai",
-      "model": "Creta",
+      "model": "Tucson",
       "year": "2022",
-      "power": "123",
+      "power": "186",
       "kuzov": "Кроссовер",
       "transmission": "АКПП",
       "engine": "Бензин",
-      "color": "Красный",
-      "price": 2904900,
+      "color": "Серый",
+      "price": 4449900,
       "image": {
         "1": "/public/id20/1.png",
         "2": "/public/id20/2.png",
@@ -383,25 +402,6 @@
     {
       "id": 21,
       "brand": "Hyundai",
-      "model": "Tucson",
-      "year": "2022",
-      "power": "186",
-      "kuzov": "Кроссовер",
-      "transmission": "АКПП",
-      "engine": "Бензин",
-      "color": "Серый",
-      "price": 4449900,
-      "image": {
-        "1": "/public/id21/1.png",
-        "2": "/public/id21/2.png",
-        "3": "/public/id21/3.png",
-        "4": "/public/id21/4.png",
-        "5": "/public/id21/5.png"
-      }
-    },
-    {
-      "id": 22,
-      "brand": "Hyundai",
       "model": "Santa FE",
       "year": "2022",
       "power": "180",
@@ -411,11 +411,11 @@
       "color": "Серый",
       "price": 5320900,
       "image": {
-        "1": "/public/id22/1.png",
-        "2": "/public/id22/2.png",
-        "3": "/public/id22/3.png",
-        "4": "/public/id22/4.png",
-        "5": "/public/id22/5.png"
+        "1": "/public/id21/1.png",
+        "2": "/public/id21/2.png",
+        "3": "/public/id21/3.png",
+        "4": "/public/id21/4.png",
+        "5": "/public/id21/5.png"
       }
     }
   ]

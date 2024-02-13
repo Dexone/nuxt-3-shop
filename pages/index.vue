@@ -75,14 +75,14 @@
 
 
 
-
   <div class="max-w-7xl mx-auto">
-
 
 
 
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow m-5 inline-flex "
       v-for="main, index in   mainInfo  ">
+
+
       <div class="p-5">
         <h5 class="mb-2 text-1xl font-bold text-gray-900">
           <NuxtLink :to="`/product/${main.id}`">
@@ -105,21 +105,31 @@
         </p>
 
 
-        <button type="submit" class="w-full text-white bg-gray-900 text-sm px-5 py-2.5 text-center"
-          @click="addToCart(main), addSumm(main)">Купить</button>
+
+
+
+
+        <!-- <button type="submit" :class="{ 'bg-gray-500': tfArray[main.id] }"
+          class="w-full text-white bg-gray-900  text-sm px-5 py-2.5 text-center"
+          @click="addToCart(main), addSumm(main), vfor()">
+          <a v-if="tfArray[main.id]">В корзине</a>
+          <a v-else>Купить</a>
+        </button> -->
+
+        <a v-if="tfArray[main.id]"><button
+            @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm + main.price, cartStore.cart[compareIndex[main.id]].amount++">+</button>{{
+              cartStore.cart[compareIndex[main.id]].amount }}<button
+            @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, cartStore.cart[compareIndex[main.id]].amount--">-</button></a>
+        <div v-else><button
+            @click="addToCart(main), vfor(), cartStore.cart[compareIndex[main.id]].amount++">Купить</button>
+        </div>
 
       </div>
     </div>
 
   </div>
   <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
-
-
-
-
-
-
-  <button @click="console.log(mainInfo)">test</button>
+  <button @click="console.log(tfArray)">test</button>
 </template>
 
 
@@ -127,11 +137,33 @@
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
 
+
+const allProducts = useFetch(`http://localhost:3000/products`)
+
+
 const showElement = ref(true)
 const showPrice = ref(true)
 const showColor = ref(true)
 
 
+
+let tfArray = ref([]) //массив true false нахождения машины в корзине
+let compareIndex = ref([]) //кол-во машин в корзине в каждой карточке
+function vfor() {
+  let idArray = []
+  for (let i = 0; i < cartStore.cart.length; i++) {
+    idArray.push(cartStore.cart[i].id)
+  }
+  tfArray.value.length = 0
+  compareIndex.value.length = 0
+  let a = 0
+  for (let b = 0; b < allProducts.data.value.length; b++) {
+    tfArray.value.push(idArray.includes(a))
+    compareIndex.value.push(idArray.indexOf(a))
+    a++
+  }
+
+}
 
 const powerVM = ref([100, 550])
 
@@ -141,7 +173,6 @@ const currentPage = ref(1)
 
 const mainInfo = ref(0)
 const cartStore = useCart();
-
 const totalPages = ref(3)
 
 
@@ -158,15 +189,8 @@ function searchPush() {
   for (let i = 0; i < colorsVM.value.length; i++) {
     search.push("&color=" + colorsVM.value[i])
   }
-
   search.push("&power_gte=" + powerVM.value[0] + "&power_lte=" + powerVM.value[1])
-
-
   search.push("&price_gte=" + otPriceVM.value + "&price_lte=" + doPriceVM.value)
-
-
-
-  console.log(search.join(''))
 }
 
 
@@ -180,10 +204,14 @@ watchEffect(() => {
 })
 
 
+watch(cartStore.cart, () => {
+  vfor(), syncSumm()
+})
+
+
 async function update() {
   const page = currentPage.value
-  // const pagination = useFetch(`http://localhost:3000/products`)
-  // console.log(pagination.data.value)
+
 
   const { data } = await useFetch(`http://localhost:3000/products?${search.join('')}&_page=${page}`)
   // totalPages.value = data.value.pages
@@ -206,25 +234,33 @@ async function update() {
         3: import.meta.env.BASE_URL + data.value[index].image[3],
         4: import.meta.env.BASE_URL + data.value[index].image[4],
         5: import.meta.env.BASE_URL + data.value[index].image[5],
-      }
+      },
+      amount: 0, //количество штук в карточке
+      amountSumm: data.value[index].price //сумма товаров в карточке
     }
   })
   mainInfo.value = mainData
 }
 
+
+
+
 watch(currentPage, () => {
   update()
 })
 await update()
-
+vfor()
 function addToCart(value) {
   cartStore.addToCart(value);
 }
 
 
-function addSumm(value) {
-  cartStore.addSumm(value);
+function syncSumm(value) {
+  cartStore.syncSumm(value);
 }
+
+
+
 </script>
 
 
