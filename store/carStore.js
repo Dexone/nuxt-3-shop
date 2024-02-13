@@ -16,7 +16,7 @@ export const useCart = defineStore("cartStore", {
       this.summ = 0
       this.cartLength = 0
       for (let i = 0; i < this.cart.length; i++) {
-        this.summ = this.summ + (this.cart[i].amountSumm * this.cart[i].amount)
+        this.summ = this.summ + this.cart[i].amountSumm
         this.cartLength = this.cartLength + this.cart[i].amount
       }
     },

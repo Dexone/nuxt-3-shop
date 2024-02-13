@@ -123,7 +123,8 @@
 
 
           <a v-if="cartStore.cart[compareIndex[main.id]].amount === 1">
-            <button @click="cartStore.deleteCart(compareIndex[main.id])">Удалить</button>
+            <button
+              @click="cartStore.cart[compareIndex[main.id]].amount--, cartStore.deleteCart(compareIndex[main.id])">Удалить</button>
           </a>
           <a v-else> <button
               @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, cartStore.cart[compareIndex[main.id]].amount--">-</button></a>
@@ -176,7 +177,7 @@ function vfor() {
     compareIndex.value.push(idArray.indexOf(a))
     a++
   }
-console.log(cartStore.cart)
+  console.log(cartStore.cart)
 }
 
 const powerVM = ref([100, 550])
