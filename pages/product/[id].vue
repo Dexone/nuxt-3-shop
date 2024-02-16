@@ -1,7 +1,23 @@
 
 <script setup>
+import { useCart } from '../store/carStore'
+const cartStore = useCart();
+
+
 
 const route = useRoute()
+
+
+
+const alligator = ["thick scales", 80, "4 foot tail", "rounded snout"];
+
+
+for (let i = 0; i < cartStore.cart.length; i++) {
+    let find = cartStore.cart[i].id
+    console.log(find.indexOf(0))
+}
+
+
 
 
 const imageData = ref([])
@@ -34,13 +50,8 @@ function ffright() {
 </script>
 
 <template>
-    <div style="z-index: 10; margin: 100px;">12312</div>
-
-
-    <div v-for="image in imageData">
-
-
-
+    <button @click="console.log(cartStore.cart[0].id.indexOf(0))"> test</button>
+    <div v-for="image in imageData" class="max-w-7xl mx-auto">
 
 
         <a class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row">
@@ -87,7 +98,8 @@ function ffright() {
 
 
             <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ product.brand }} {{ product.model }}</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{{ product.brand }} {{ product.model }}
+                </h5>
                 <p class="mb-3 font-normal text-gray-700 ">Год: {{ product.year }}</p>
                 <p class="mb-3 font-normal text-gray-700 ">Мощность: {{ product.power }} л/с</p>
                 <p class="mb-3 font-normal text-gray-700 ">Тип кузова: {{ product.kuzov }}</p>

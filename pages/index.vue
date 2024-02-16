@@ -109,30 +109,56 @@
 
 
 
-        <!-- <button type="submit" :class="{ 'bg-gray-500': tfArray[main.id] }"
-          class="w-full text-white bg-gray-900  text-sm px-5 py-2.5 text-center"
-          @click="addToCart(main), addSumm(main), vfor()">
-          <a v-if="tfArray[main.id]">В корзине</a>
-          <a v-else>Купить</a>
-        </button> -->
-
-        <a v-if="tfArray[main.id]"><button
-            @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm + main.price, cartStore.cart[compareIndex[main.id]].amount++">+</button>{{
-              cartStore.cart[compareIndex[main.id]].amount }}
-
-
+        <a v-if="tfArray[main.id]">
 
           <a v-if="cartStore.cart[compareIndex[main.id]].amount === 1">
-            <button
-              @click="cartStore.cart[compareIndex[main.id]].amount--, cartStore.deleteCart(compareIndex[main.id])">Удалить</button>
-          </a>
-          <a v-else> <button
-              @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, cartStore.cart[compareIndex[main.id]].amount--">-</button></a>
 
+            <button @click="cartStore.cart[compareIndex[main.id]].amount--, cartStore.deleteCart(compareIndex[main.id])"
+              type="button"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+              -
+            </button>
+
+          </a>
+          <a v-else>
+            <button
+              @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, cartStore.cart[compareIndex[main.id]].amount--"
+              type="button"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+              -
+            </button>
+          </a>
+
+          <a type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200">
+            {{
+              cartStore.cart[compareIndex[main.id]].amount }}
+          </a>
+
+
+          <button
+            @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm + main.price, cartStore.cart[compareIndex[main.id]].amount++"
+            type="button"
+            class=" px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 ">
+            +
+          </button>
 
         </a>
-        <div v-else><button
-            @click="addToCart(main), vfor(), cartStore.cart[compareIndex[main.id]].amount++">Купить</button>
+
+
+
+
+
+        <div v-else>
+          <a @click="addToCart(main), vfor(), cartStore.cart[compareIndex[main.id]].amount++" href="#"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 ">
+            Добавить в корзину
+          </a>
+
+
+
+
+
+
         </div>
 
       </div>

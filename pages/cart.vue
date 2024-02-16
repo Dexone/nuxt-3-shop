@@ -45,27 +45,66 @@ watch(cartStore.cart, () => {
                 </p>
               </div>
 
-              <!-- <button
-                @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm + main.price, addSumm(main), cartStore.cart[compareIndex[main.id]].amount++">+</button>{{
-                  cartStore.cart[compareIndex[main.id]].amount }}<button
-                @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, deleteSumm(main), cartStore.cart[compareIndex[main.id]].amount--">-</button> -->
 
 
 
-              <div class="inline-flex text-xl items-center text-base font-semibold text-gray-900 ">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="inline-flex text-xl items-center text-base font-semibold text-gray-900 mr-2">
                 {{ main.amountSumm }} ₽
 
 
 
-                <button @click="deleteCart(index)" type="button"
-                  class="text-blue-700  font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center">
-                  <svg class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                </button>
               </div>
+
+
+
+
+                <a v-if="cartStore.cart[index].amount === 1">
+
+                  <button @click="cartStore.cart[index].amount--, cartStore.deleteCart(index)" type="button"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                    -
+                  </button>
+
+                </a>
+                <a v-else>
+                  <button
+                    @click="cartStore.cart[index].amountSumm = cartStore.cart[index].amountSumm - main.price, cartStore.cart[index].amount--"
+                    type="button"
+                    class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                    -
+                  </button>
+                </a>
+
+                <a type="button"
+                  class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200">
+                  {{
+                    cartStore.cart[index].amount }}
+                </a>
+
+
+                <button
+                  @click="cartStore.cart[index].amountSumm = cartStore.cart[index].amountSumm + main.price, cartStore.cart[index].amount++"
+                  type="button"
+                  class=" px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 ">
+                  +
+                </button>
+
             </div>
           </li>
         </ul>
