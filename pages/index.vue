@@ -161,7 +161,7 @@ const showColor = ref(true)
 
 
 
-let tfArray = ref([]) //массив true false нахождения машины в корзине
+let tfArray = ref([]) //массив true false нахождения машины в корзине 
 let compareIndex = ref([]) // сопоставление массивов: индекс здесь = индекс в корзине
 function vfor() {
   let idArray = []
@@ -199,7 +199,7 @@ let colors = ["Черный", "Красный", "Серый", "Белый", "К�
 let search = []
 
 
-function searchPush() {
+function searchPush() { //строка поиска
   search = []
   for (let i = 0; i < colorsVM.value.length; i++) {
     search.push("&color=" + colorsVM.value[i])
