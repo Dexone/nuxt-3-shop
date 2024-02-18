@@ -80,7 +80,7 @@
 
 
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow m-5 inline-flex "
-      v-for="main, index in   mainInfo  ">
+      v-for="main, index in    mainInfo   ">
 
 
       <div class="p-5">
@@ -104,16 +104,22 @@
           {{ Math.round(main.price / 84) }} ₽/мес
         </p>
 
+        <div v-if="cartStore.compare[main.id] == -1">
+          <a @click=" addToCart(main), syncCompare(), cartStore.cart[cartStore.compare[main.id]].amount++" href="#"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 ">
+            Добавить в корзину
+          </a>
+
+        </div>
 
 
 
+        <a v-else>
 
+          <a v-if="cartStore.cart[cartStore.compare[main.id]].amount === 1">
 
-        <a v-if="tfArray[main.id]">
-
-          <a v-if="cartStore.cart[compareIndex[main.id]].amount === 1">
-
-            <button @click="cartStore.cart[compareIndex[main.id]].amount--, cartStore.deleteCart(compareIndex[main.id])"
+            <button
+              @click="cartStore.cart[cartStore.compare[main.id]].amount--, cartStore.deleteCart(cartStore.compare[main.id])"
               type="button"
               class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
               -
@@ -122,7 +128,7 @@
           </a>
           <a v-else>
             <button
-              @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm - main.price, cartStore.cart[compareIndex[main.id]].amount--"
+              @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm - main.price, cartStore.cart[cartStore.compare[main.id]].amount--"
               type="button"
               class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
               -
@@ -131,12 +137,12 @@
 
           <a type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200">
             {{
-              cartStore.cart[compareIndex[main.id]].amount }}
+              cartStore.cart[cartStore.compare[main.id]].amount }}
           </a>
 
 
           <button
-            @click="cartStore.cart[compareIndex[main.id]].amountSumm = cartStore.cart[compareIndex[main.id]].amountSumm + main.price, cartStore.cart[compareIndex[main.id]].amount++"
+            @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm + main.price, cartStore.cart[cartStore.compare[main.id]].amount++"
             type="button"
             class=" px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 ">
             +
@@ -146,27 +152,14 @@
 
 
 
-
-
-        <div v-else>
-          <a @click="addToCart(main), vfor(), cartStore.cart[compareIndex[main.id]].amount++" href="#"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 ">
-            Добавить в корзину
-          </a>
-
-
-
-
-
-
-        </div>
-
       </div>
     </div>
 
   </div>
   <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
-  <button @click="console.log(tfArray)">test</button>
+
+
+  {{ cartStore.compare }}
 </template>
 
 
@@ -182,29 +175,6 @@ const showElement = ref(true)
 const showPrice = ref(true)
 const showColor = ref(true)
 
-
-
-
-
-
-let tfArray = ref([]) //массив true false нахождения машины в корзине 
-let compareIndex = ref([]) // сопоставление массивов: индекс здесь = индекс в корзине
-function vfor() {
-  let idArray = []
-  for (let i = 0; i < cartStore.cart.length; i++) {
-    idArray.push(cartStore.cart[i].id)
-
-  }
-  tfArray.value.length = 0
-  compareIndex.value.length = 0
-  let a = 0
-  for (let b = 0; b < allProducts.data.value.length; b++) {
-    tfArray.value.push(idArray.includes(a))
-    compareIndex.value.push(idArray.indexOf(a))
-    a++
-  }
-  console.log(cartStore.cart)
-}
 
 const powerVM = ref([100, 550])
 
@@ -246,7 +216,7 @@ watchEffect(() => {
 
 
 watch(cartStore.cart, () => {
-  vfor(), syncSumm()
+  syncSumm(), syncCompare()
 })
 
 
@@ -292,7 +262,8 @@ watch(currentPage, () => {
   update()
 })
 await update()
-vfor()
+syncCompare()
+
 function addToCart(value) {
   cartStore.addToCart(value);
 }
@@ -302,7 +273,9 @@ function syncSumm() {
   cartStore.syncSumm();
 }
 
-
+function syncCompare() {
+  cartStore.syncCompare();
+}
 
 </script>
 

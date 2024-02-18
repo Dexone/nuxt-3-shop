@@ -1,24 +1,8 @@
-
 <script setup>
 import { useCart } from '../store/carStore'
 const cartStore = useCart();
 
-
-
 const route = useRoute()
-
-
-
-const alligator = ["thick scales", 80, "4 foot tail", "rounded snout"];
-
-
-for (let i = 0; i < cartStore.cart.length; i++) {
-    let find = cartStore.cart[i].id
-    console.log(find.indexOf(0))
-}
-
-
-
 
 const imageData = ref([])
 
@@ -107,6 +91,26 @@ function ffright() {
                 <p class="mb-3 font-normal text-gray-700 ">Тип двигателя: {{ product.engine }}</p>
                 <p class="mb-3 font-normal text-gray-700 ">Цвет: {{ product.color }}</p>
                 <p class="mb-3 font-normal text-gray-700 ">Цена: {{ product.price }}</p>
+                <!-- {{ cartStore.cart[cartStore.compare[product.id]] }} -->
+
+                <!-- {{ cartStore.compare[product.id] }} -->
+
+                <div v-if="cartStore.compare[product.id] === -1">
+                    <button @click="">Добавить в корзину</button>
+                </div>
+
+
+                <div v-else>
+                    В корзине
+                </div>
+
+
+                
+                {{ cartStore.compare[product.id] }}
+
+
+
+
             </div>
         </a>
     </div>
