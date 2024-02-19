@@ -1,41 +1,6 @@
-<script setup>
-import { useCart } from '../store/carStore'
-const cartStore = useCart();
-
-const route = useRoute()
-
-const imageData = ref([])
-
-const { data: product } = await useFetch(`http://localhost:3000/products/${route.params.id}`)
-imageData.value = [{
-    1: import.meta.env.BASE_URL + product.value.image[1],
-    2: import.meta.env.BASE_URL + product.value.image[2],
-    3: import.meta.env.BASE_URL + product.value.image[3],
-    4: import.meta.env.BASE_URL + product.value.image[4],
-    5: import.meta.env.BASE_URL + product.value.image[5]
-}]
-
-let count = ref(1)
-console.log(product)
-function ffleft() {
-    count.value--
-    console.log(count.value)
-    if (count.value === 0)
-        count.value = 1
-}
-
-function ffright() {
-    count.value++
-    console.log(count.value)
-    if (count.value === 6)
-        count.value = 5
-}
-
-</script>
-
 <template>
-    <button @click="console.log(cartStore.cart[0].id.indexOf(0))"> test</button>
-    <div v-for="image in imageData" class="max-w-7xl mx-auto">
+    <button @click="console.log(additionalData)">test</button>
+    <div v-for="image in additionalData" class="max-w-7xl mx-auto">
 
 
         <a class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row">
@@ -96,18 +61,50 @@ function ffright() {
                 <!-- {{ cartStore.compare[product.id] }} -->
 
                 <div v-if="cartStore.compare[product.id] === -1">
-                    <button @click="">Добавить в корзину</button>
+                    <button
+                        @click="addToCart(product), syncCompare(), cartStore.cart[cartStore.compare[product.id]].amount = 0, cartStore.cart[cartStore.compare[product.id]].amountSumm = product.price, cartStore.cart[cartStore.compare[product.id]].amount++">Добавить
+                        в корзину</button>
                 </div>
 
 
                 <div v-else>
-                    В корзине
+
+
+                    <a v-if="cartStore.cart[cartStore.compare[product.id]].amount === 1">
+
+                        <button
+                            @click="cartStore.cart[cartStore.compare[product.id]].amount--, cartStore.deleteCart(cartStore.compare[product.id])"
+                            type="button"
+                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                            -
+                        </button>
+
+                    </a>
+                    <a v-else>
+                        <button
+                            @click="cartStore.cart[cartStore.compare[product.id]].amountSumm = cartStore.cart[cartStore.compare[product.id]].amountSumm - product.price, cartStore.cart[cartStore.compare[product.id]].amount--"
+                            type="button"
+                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                            -
+                        </button>
+                    </a>
+
+                    <a type="button"
+                        class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200">
+                        {{
+                            cartStore.cart[cartStore.compare[product.id]].amount }}
+                    </a>
+
+
+                    <button
+                        @click="cartStore.cart[cartStore.compare[product.id]].amountSumm = cartStore.cart[cartStore.compare[product.id]].amountSumm + product.price, cartStore.cart[cartStore.compare[product.id]].amount++"
+                        type="button"
+                        class=" px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 ">
+                        +
+                    </button>
+
+
                 </div>
-
-
-                
-                {{ cartStore.compare[product.id] }}
-
 
 
 
@@ -115,3 +112,61 @@ function ffright() {
         </a>
     </div>
 </template>
+
+
+
+
+<script setup>
+import { useCart } from '../store/carStore'
+const cartStore = useCart();
+
+const route = useRoute()
+
+const additionalData = ref([])
+
+const { data: product } = await useFetch(`http://localhost:3000/products/${route.params.id}`)
+
+additionalData.value = [{
+    1: import.meta.env.BASE_URL + product.value.image[1],
+    2: import.meta.env.BASE_URL + product.value.image[2],
+    3: import.meta.env.BASE_URL + product.value.image[3],
+    4: import.meta.env.BASE_URL + product.value.image[4],
+    5: import.meta.env.BASE_URL + product.value.image[5],
+}]
+
+let count = ref(1)
+console.log(product)
+function ffleft() {
+    count.value--
+    console.log(count.value)
+    if (count.value === 0)
+        count.value = 1
+}
+
+function ffright() {
+    count.value++
+    console.log(count.value)
+    if (count.value === 6)
+        count.value = 5
+}
+
+watch(cartStore.cart, () => {
+    syncSumm(), syncCompare()
+})
+
+
+function addToCart(value) {
+    cartStore.addToCart(value);
+}
+
+function syncCompare() {
+    cartStore.syncCompare();
+}
+function syncSumm() {
+    cartStore.syncSumm();
+}
+function deleteCart(index) {
+    cartStore.deleteCart(index)
+}
+</script>
+
