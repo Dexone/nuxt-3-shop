@@ -17,6 +17,7 @@ watch(cartStore.cart, () => {
 
 
 <template>
+
   <div class="max-w-4xl mx-auto mt-14">
     <div class="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 ">
       <div class="flex items-center justify-between mb-4">

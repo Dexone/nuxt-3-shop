@@ -61,10 +61,19 @@
                 <!-- {{ cartStore.compare[product.id] }} -->
 
                 <div v-if="cartStore.compare[product.id] === -1">
-                    <button
-                        @click="addToCart(product), syncCompare(), cartStore.cart[cartStore.compare[product.id]].amount = 0, cartStore.cart[cartStore.compare[product.id]].amountSumm = product.price, cartStore.cart[cartStore.compare[product.id]].amount++">Добавить
-                        в корзину</button>
+
+
+
+                    <a @click="addToCart(product), syncCompare(), cartStore.cart[cartStore.compare[product.id]].amount = 0, cartStore.cart[cartStore.compare[product.id]].amountSumm = product.price, cartStore.cart[cartStore.compare[product.id]].amount++"
+                        href="#"
+                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 ">
+                        Добавить в корзину
+                    </a>
+
+
                 </div>
+
+
 
 
                 <div v-else>
