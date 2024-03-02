@@ -161,7 +161,7 @@
   <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
 
 
-  {{ cartStore.compare }}
+
 </template>
 
 
