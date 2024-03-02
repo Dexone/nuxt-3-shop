@@ -62,7 +62,7 @@
 
                 <div v-if="cartStore.compare[product.id] === -1">
 
-
+{{ product }}
 
                     <a @click="addToCart(product), syncCompare(), cartStore.cart[cartStore.compare[product.id]].amount = 0, cartStore.cart[cartStore.compare[product.id]].amountSumm = product.price, cartStore.cart[cartStore.compare[product.id]].amount++"
                         href="#"
