@@ -13,11 +13,11 @@
       "color": "Красный",
       "price": 4934900,
       "image": {
-        "1": "/public/id0/1.png",
-        "2": "/public/id0/2.png",
-        "3": "/public/id0/3.png",
-        "4": "/public/id0/4.png",
-        "5": "/public/id0/5.png"
+        "1": "/id0/1.png",
+        "2": "/id0/2.png",
+        "3": "/id0/3.png",
+        "4": "/id0/4.png",
+        "5": "/id0/5.png"
       }
     },
     {
@@ -32,11 +32,11 @@
       "color": "Черный",
       "price": 2614900,
       "image": {
-        "1": "/public/id1/1.png",
-        "2": "/public/id1/2.png",
-        "3": "/public/id1/3.png",
-        "4": "/public/id1/4.png",
-        "5": "/public/id1/5.png"
+        "1": "/id1/1.png",
+        "2": "/id1/2.png",
+        "3": "/id1/3.png",
+        "4": "/id1/4.png",
+        "5": "/id1/5.png"
       }
     },
     {
@@ -51,11 +51,11 @@
       "color": "Черный",
       "price": 3194900,
       "image": {
-        "1": "/public/id2/1.png",
-        "2": "/public/id2/2.png",
-        "3": "/public/id2/3.png",
-        "4": "/public/id2/4.png",
-        "5": "/public/id2/5.png"
+        "1": "/id2/1.png",
+        "2": "/id2/2.png",
+        "3": "/id2/3.png",
+        "4": "/id2/4.png",
+        "5": "/id2/5.png"
       }
     },
     {
@@ -70,11 +70,11 @@
       "color": "Серый",
       "price": 2970000,
       "image": {
-        "1": "/public/id3/1.png",
-        "2": "/public/id3/2.png",
-        "3": "/public/id3/3.png",
-        "4": "/public/id3/5.png",
-        "5": "/public/id3/5.png"
+        "1": "/id3/1.png",
+        "2": "/id3/2.png",
+        "3": "/id3/3.png",
+        "4": "/id3/5.png",
+        "5": "/id3/5.png"
       }
     },
     {
@@ -89,11 +89,11 @@
       "color": "Белый",
       "price": 2734900,
       "image": {
-        "1": "/public/id4/1.png",
-        "2": "/public/id4/2.png",
-        "3": "/public/id4/3.png",
-        "4": "/public/id4/4.png",
-        "5": "/public/id4/5.png"
+        "1": "/id4/1.png",
+        "2": "/id4/2.png",
+        "3": "/id4/3.png",
+        "4": "/id4/4.png",
+        "5": "/id4/5.png"
       }
     },
     {
@@ -108,11 +108,11 @@
       "color": "Черный",
       "price": 7374900,
       "image": {
-        "1": "/public/id5/1.png",
-        "2": "/public/id5/2.png",
-        "3": "/public/id5/3.png",
-        "4": "/public/id5/4.png",
-        "5": "/public/id5/5.png"
+        "1": "/id5/1.png",
+        "2": "/id5/2.png",
+        "3": "/id5/3.png",
+        "4": "/id5/4.png",
+        "5": "/id5/5.png"
       }
     },
     {
@@ -127,11 +127,11 @@
       "color": "Коричневый",
       "price": 2545900,
       "image": {
-        "1": "/public/id6/1.png",
-        "2": "/public/id6/2.png",
-        "3": "/public/id6/3.png",
-        "4": "/public/id6/4.png",
-        "5": "/public/id6/5.png"
+        "1": "/id6/1.png",
+        "2": "/id6/2.png",
+        "3": "/id6/3.png",
+        "4": "/id6/4.png",
+        "5": "/id6/5.png"
       }
     },
     {
@@ -146,11 +146,11 @@
       "color": "Синий",
       "price": 2799900,
       "image": {
-        "1": "/public/id7/1.png",
-        "2": "/public/id7/2.png",
-        "3": "/public/id7/3.png",
-        "4": "/public/id7/4.png",
-        "5": "/public/id7/5.png"
+        "1": "/id7/1.png",
+        "2": "/id7/2.png",
+        "3": "/id7/3.png",
+        "4": "/id7/4.png",
+        "5": "/id7/5.png"
       }
     },
     {
@@ -165,11 +165,11 @@
       "color": "Красный",
       "price": 4344900,
       "image": {
-        "1": "/public/id8/1.png",
-        "2": "/public/id8/2.png",
-        "3": "/public/id8/3.png",
-        "4": "/public/id8/4.png",
-        "5": "/public/id8/5.png"
+        "1": "/id8/1.png",
+        "2": "/id8/2.png",
+        "3": "/id8/3.png",
+        "4": "/id8/4.png",
+        "5": "/id8/5.png"
       }
     },
     {
@@ -184,11 +184,11 @@
       "color": "Синий",
       "price": 2204900,
       "image": {
-        "1": "/public/id9/1.png",
-        "2": "/public/id9/2.png",
-        "3": "/public/id9/3.png",
-        "4": "/public/id9/4.png",
-        "5": "/public/id9/5.png"
+        "1": "/id9/1.png",
+        "2": "/id9/2.png",
+        "3": "/id9/3.png",
+        "4": "/id9/4.png",
+        "5": "/id9/5.png"
       }
     },
     {
@@ -203,11 +203,11 @@
       "color": "Черный",
       "price": 4823200,
       "image": {
-        "1": "/public/id10/1.png",
-        "2": "/public/id10/2.png",
-        "3": "/public/id10/3.png",
-        "4": "/public/id10/4.png",
-        "5": "/public/id10/5.png"
+        "1": "/id10/1.png",
+        "2": "/id10/2.png",
+        "3": "/id10/3.png",
+        "4": "/id10/4.png",
+        "5": "/id10/5.png"
       }
     },
     {
@@ -222,11 +222,11 @@
       "color": "Синий",
       "price": 5374900,
       "image": {
-        "1": "/public/id11/1.png",
-        "2": "/public/id11/2.png",
-        "3": "/public/id11/3.png",
-        "4": "/public/id11/4.png",
-        "5": "/public/id11/5.png"
+        "1": "/id11/1.png",
+        "2": "/id11/2.png",
+        "3": "/id11/3.png",
+        "4": "/id11/4.png",
+        "5": "/id11/5.png"
       }
     },
     {
@@ -241,11 +241,11 @@
       "color": "Черный",
       "price": 4950000,
       "image": {
-        "1": "/public/id12/1.png",
-        "2": "/public/id12/2.png",
-        "3": "/public/id12/3.png",
-        "4": "/public/id12/4.png",
-        "5": "/public/id12/5.png"
+        "1": "/id12/1.png",
+        "2": "/id12/2.png",
+        "3": "/id12/3.png",
+        "4": "/id12/4.png",
+        "5": "/id12/5.png"
       }
     },
     {
@@ -260,11 +260,11 @@
       "color": "Красный",
       "price": 2108000,
       "image": {
-        "1": "/public/id13/1.png",
-        "2": "/public/id13/2.png",
-        "3": "/public/id13/3.png",
-        "4": "/public/id13/4.png",
-        "5": "/public/id13/5.png"
+        "1": "/id13/1.png",
+        "2": "/id13/2.png",
+        "3": "/id13/3.png",
+        "4": "/id13/4.png",
+        "5": "/id13/5.png"
       }
     },
     {
@@ -279,11 +279,11 @@
       "color": "Белый",
       "price": 9350000,
       "image": {
-        "1": "/public/id14/1.png",
-        "2": "/public/id14/2.png",
-        "3": "/public/id14/3.png",
-        "4": "/public/id14/4.png",
-        "5": "/public/id14/5.png"
+        "1": "/id14/1.png",
+        "2": "/id14/2.png",
+        "3": "/id14/3.png",
+        "4": "/id14/4.png",
+        "5": "/id14/5.png"
       }
     },
     {
@@ -298,11 +298,11 @@
       "color": "Серый",
       "price": 8400000,
       "image": {
-        "1": "/public/id15/1.png",
-        "2": "/public/id15/2.png",
-        "3": "/public/id15/3.png",
-        "4": "/public/id15/4.png",
-        "5": "/public/id15/5.png"
+        "1": "/id15/1.png",
+        "2": "/id15/2.png",
+        "3": "/id15/3.png",
+        "4": "/id15/4.png",
+        "5": "/id15/5.png"
       }
     },
     {
@@ -317,11 +317,11 @@
       "color": "Синий",
       "price": 3520000,
       "image": {
-        "1": "/public/id16/1.png",
-        "2": "/public/id16/2.png",
-        "3": "/public/id16/3.png",
-        "4": "/public/id16/4.png",
-        "5": "/public/id16/5.png"
+        "1": "/id16/1.png",
+        "2": "/id16/2.png",
+        "3": "/id16/3.png",
+        "4": "/id16/4.png",
+        "5": "/id16/5.png"
       }
     },
     {
@@ -336,11 +336,11 @@
       "color": "Белый",
       "price": 3930000,
       "image": {
-        "1": "/public/id17/1.png",
-        "2": "/public/id17/2.png",
-        "3": "/public/id17/3.png",
-        "4": "/public/id17/4.png",
-        "5": "/public/id17/5.png"
+        "1": "/id17/1.png",
+        "2": "/id17/2.png",
+        "3": "/id17/3.png",
+        "4": "/id17/4.png",
+        "5": "/id17/5.png"
       }
     },
     {
@@ -355,11 +355,11 @@
       "color": "Синий",
       "price": 11090000,
       "image": {
-        "1": "/public/id18/1.png",
-        "2": "/public/id18/2.png",
-        "3": "/public/id18/3.png",
-        "4": "/public/id18/4.png",
-        "5": "/public/id18/5.png"
+        "1": "/id18/1.png",
+        "2": "/id18/2.png",
+        "3": "/id18/3.png",
+        "4": "/id18/4.png",
+        "5": "/id18/5.png"
       }
     },
     {
@@ -374,11 +374,11 @@
       "color": "Красный",
       "price": 2904900,
       "image": {
-        "1": "/public/id19/1.png",
-        "2": "/public/id19/2.png",
-        "3": "/public/id19/3.png",
-        "4": "/public/id19/4.png",
-        "5": "/public/id19/5.png"
+        "1": "/id19/1.png",
+        "2": "/id19/2.png",
+        "3": "/id19/3.png",
+        "4": "/id19/4.png",
+        "5": "/id19/5.png"
       }
     },
     {
@@ -393,11 +393,11 @@
       "color": "Серый",
       "price": 4449900,
       "image": {
-        "1": "/public/id20/1.png",
-        "2": "/public/id20/2.png",
-        "3": "/public/id20/3.png",
-        "4": "/public/id20/4.png",
-        "5": "/public/id20/5.png"
+        "1": "/id20/1.png",
+        "2": "/id20/2.png",
+        "3": "/id20/3.png",
+        "4": "/id20/4.png",
+        "5": "/id20/5.png"
       }
     },
     {
@@ -412,11 +412,11 @@
       "color": "Серый",
       "price": 5320900,
       "image": {
-        "1": "/public/id21/1.png",
-        "2": "/public/id21/2.png",
-        "3": "/public/id21/3.png",
-        "4": "/public/id21/4.png",
-        "5": "/public/id21/5.png"
+        "1": "/id21/1.png",
+        "2": "/id21/2.png",
+        "3": "/id21/3.png",
+        "4": "/id21/4.png",
+        "5": "/id21/5.png"
       }
     }
   ]

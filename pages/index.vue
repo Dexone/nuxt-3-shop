@@ -14,16 +14,18 @@
     <div :class="{ 'hidden': showElement }" class="z-10 absolute bg-white divide-y divide-gray-100 shadow w-44">
       <ul class="py-2 text-sm text-gray-700">
         <li>
+          <ClientOnly>
           <div class="slider-demo-block">
             <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color />
           </div>
+        </ClientOnly>
         </li>
       </ul>
     </div>
 
 
     <button @click="showPrice = !showPrice" type="button"
-      class="inline-flex items-center text-gray mx-1 my-1 bg-white border border-gray-900 font-medium text-sm px-5 py-2.5 text-center inline-flex">
+      class="items-center text-gray mx-1 my-1 bg-white border border-gray-900 font-medium text-sm px-5 py-2.5 text-center inline-flex">
       Цена
       <svg class="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
@@ -240,11 +242,11 @@ async function update() {
       color: data.value[index].color,
       price: data.value[index].price,
       image: {
-        1: import.meta.env.BASE_URL + data.value[index].image[1],
-        2: import.meta.env.BASE_URL + data.value[index].image[2],
-        3: import.meta.env.BASE_URL + data.value[index].image[3],
-        4: import.meta.env.BASE_URL + data.value[index].image[4],
-        5: import.meta.env.BASE_URL + data.value[index].image[5],
+        1: data.value[index].image[1],
+        2: data.value[index].image[2],
+        3: data.value[index].image[3],
+        4: data.value[index].image[4],
+        5: data.value[index].image[5],
       },
       amount: 0, //количество штук в карточке
       amountSumm: data.value[index].price //сумма товаров в карточке

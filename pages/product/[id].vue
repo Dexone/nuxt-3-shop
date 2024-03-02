@@ -136,11 +136,11 @@ const additionalData = ref([])
 const { data: product } = await useFetch(`http://localhost:3000/products/${route.params.id}`)
 
 additionalData.value = [{
-    1: import.meta.env.BASE_URL + product.value.image[1],
-    2: import.meta.env.BASE_URL + product.value.image[2],
-    3: import.meta.env.BASE_URL + product.value.image[3],
-    4: import.meta.env.BASE_URL + product.value.image[4],
-    5: import.meta.env.BASE_URL + product.value.image[5],
+    1: product.value.image[1],
+    2: product.value.image[2],
+    3: product.value.image[3],
+    4: product.value.image[4],
+    5: product.value.image[5],
 }]
 
 let count = ref(1)
