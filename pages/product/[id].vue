@@ -132,8 +132,8 @@ const cartStore = useCart();
 const route = useRoute()
 
 const additionalData = ref([])
-
-const { data: product } = await useFetch(`http://localhost:3000/products/${route.params.id}`)
+const runtimeConfig = useRuntimeConfig()
+const { data: product } = await useFetch(`${runtimeConfig.public.apiBase}/products/${route.params.id}`)
 
 additionalData.value = [{
     1: product.value.image[1],

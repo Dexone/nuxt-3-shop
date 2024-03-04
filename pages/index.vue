@@ -169,8 +169,9 @@
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
 
-
-const allProducts = useFetch(`http://localhost:3000/products`)
+const runtimeConfig = useRuntimeConfig()
+console.log(runtimeConfig.public.apiBase)
+// const allProducts = useFetch(`http://localhost:3000/products`)
 
 
 const showElement = ref(true)
@@ -226,7 +227,7 @@ async function update() {
   const page = currentPage.value
 
 
-  const { data } = await useFetch(`http://localhost:3000/products?${search.join('')}&_page=${page}`)
+  const { data } = await useFetch(`${runtimeConfig.public.apiBase}/products?${search.join('')}&_page=${page}`)
   // totalPages.value = data.value.pages
 
   const mainData = data.value.map((item, index) => {
