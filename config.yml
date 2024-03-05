@@ -1,0 +1,8 @@
+apps:
+  # Top SSR frontend
+  - name: nuxt-3-shop
+    script: '.output/server/index.mjs'
+    port: 5000
+    exec_mode: cluster
+    interpreter: node
+    instances: 2
