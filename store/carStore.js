@@ -22,7 +22,7 @@ export const useCart = defineStore("cartStore", {
       }
     },
     syncCompare() {
-      // const data = useFetch(`http://localhost:3000/products`)
+  
       this.compare = []
       let idArray = []
       for (let i = 0; i < this.cart.length; i++) {

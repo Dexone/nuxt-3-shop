@@ -1,164 +1,205 @@
-
-
 <template>
-  <a class="block relative p-6 bg-gray-100 border border-gray-200 rounded-lg shadow max-w-7xl mx-auto">
 
-    <button @click="showElement = !showElement"
-      class="text-gray  border border-gray-900 bg-white mx-1 my-1 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center"
-      type="button">Мощность двигателя<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-        fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-      </svg>
-    </button>
+  <main class="bg-white  max-w-7xl mx-auto">
 
-    <div :class="{ 'hidden': showElement }" class="z-10 absolute bg-white divide-y divide-gray-100 shadow w-44">
-      <ul class="py-2 text-sm text-gray-700">
-        <li>
-          <ClientOnly>
-          <div class="slider-demo-block">
-            <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color />
+
+
+    <div class="max-w-7xl mx-auto">
+      <a class="block relative p-6 bg-gray-100 border border-gray-200 rounded-lg shadow mx-5">
+
+
+
+
+        <form class="max-w-sm">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
+          <div class="flex">
+            <input v-model="otPriceVM"
+              class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
+              placeholder="Цена от">
+            </input>
+            <input type="text" v-model="doPriceVM"
+              class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
+              placeholder="Цена до">
           </div>
-        </ClientOnly>
-        </li>
-      </ul>
-    </div>
+        </form>
 
 
-    <button @click="showPrice = !showPrice" type="button"
-      class="items-center text-gray mx-1 my-1 bg-white border border-gray-900 font-medium text-sm px-5 py-2.5 text-center inline-flex">
-      Цена
-      <svg class="w-3 h-3 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-      </svg>
-    </button>
 
-    <div :class="{ 'hidden': showPrice }" id="dateRangeDropdown"
-      class="z-10 absolute bg-white divide-y divide-gray-100 shadow w-80 lg:w-96">
-      <div class="p-3" aria-labelledby="dateRangeButton">
-        <div date-rangepicker datepicker-autohide class="flex items-center">
-          <div class="relative">
-            <input v-model="otPriceVM" type="text"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5" placeholder="от">
+
+
+        <form class="max-w-sm mt-2">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Мощность двигателя:</label>
+          <div class="flex">
+            <input v-model="powerVM[0]"
+              class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
+              placeholder="Цена от">
+            </input>
+            <input type="text" v-model="powerVM[1]"
+              class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
+              placeholder="Цена до">
           </div>
-
-
-          <span class="mx-2 my-1 text-gray-500">-</span>
-          <div class="relative">
-            <input v-model="doPriceVM" name="end" type="text"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm block w-full p-2.5" placeholder="до">
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <button id="dropdownCheckboxButton" @click="showColor = !showColor"
-      class="text-gray bg-white  font-medium border border-gray-900 mx-1 text-sm px-5 py-2.5 text-center inline-flex items-center"
-      type="button">Цвет <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-        viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-      </svg>
-    </button>
-
-
-    <div :class="{ 'hidden': showColor }" class="z-10 w-48 bg-white divide-y divide-gray-100 shadow">
-      <ul class="p-3 space-y-3 text-sm text-gray-700  absolute z-25 bg-white left-80">
-        <li>
-          <div class="flex items-center" v-for="color, index in colors">
-            <input v-model="colorsVM" :value="color" type="checkbox"
-              class="w-4 h-4 text-gray-600 bg-gray-100 border-gray-300 rounded ">
-            <label class="ms-2 text-sm font-medium text-gray-900">{{ color }}</label>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-  </a>
+        </form>
 
 
 
-  <div class="max-w-7xl mx-auto">
 
 
 
-    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow m-5 inline-flex "
-      v-for="main, index in    mainInfo   ">
 
-
-      <div class="p-5">
-        <h5 class="mb-2 text-1xl font-bold text-gray-900">
-          <NuxtLink :to="`/product/${main.id}`">
-            {{ main.brand }} {{ main.model }}
-          </NuxtLink>
-        </h5>
-
-        <p class="mb-3 h-10 text-gray-700">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
-          main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
-        <div class="max-h-44">
-          <img v-bind:src="main.image[1]" class="rounded-t-lg -ml-5" />
-        </div>
-
-        <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">
-          {{ main.price }} ₽
-        </h5>
-
-        <p class="mb-3 text-gray-700">
-          {{ Math.round(main.price / 84) }} ₽/мес
-        </p>
-
-        <div v-if="cartStore.compare[main.id] == -1">
-          <a @click=" addToCart(main), syncCompare(), cartStore.cart[cartStore.compare[main.id]].amount++" href="#"
-            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 ">
-            Добавить в корзину
-          </a>
-
+        <label class="block mb-2 text-sm font-medium text-gray-900 mt-2">Цвет:</label>
+        <div class="flex items-center inline-flex mr-2" v-for="color, index in colors">
+          <input v-model="colorsVM" :value="color" type="checkbox"
+            class="w-4 h-4 text-gray-600 border-gray-300 rounded">
+          <label class="ms-2 text-sm font-medium text-gray-900">{{ color }}</label>
         </div>
 
 
 
-        <a v-else>
 
-          <a v-if="cartStore.cart[cartStore.compare[main.id]].amount === 1">
 
-            <button
-              @click="cartStore.cart[cartStore.compare[main.id]].amount--, cartStore.deleteCart(cartStore.compare[main.id])"
-              type="button"
-              class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
-              -
-            </button>
 
-          </a>
-          <a v-else>
-            <button
-              @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm - main.price, cartStore.cart[cartStore.compare[main.id]].amount--"
-              type="button"
-              class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
-              -
-            </button>
-          </a>
 
-          <a type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200">
-            {{
+
+
+      </a>
+
+
+    </div>
+
+
+
+
+    <div class="max-w-7xl mx-auto">
+      <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow m-5 inline-flex "
+        v-for="main, index in    mainInfo">
+
+
+        <div class="p-5">
+          <h5 class="mb-2 text-1xl font-bold text-gray-900">
+            <NuxtLink :to="`/product/${main.id}`">
+              {{ main.brand }} {{ main.model }}
+            </NuxtLink>
+          </h5>
+
+          <p class="mb-3 h-10 text-gray-700">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
+              main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
+          <div class="max-h-44">
+            <img v-bind:src="main.image[1]" class="rounded-t-lg -ml-5" />
+          </div>
+
+          <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">
+            {{ main.price }} ₽
+          </h5>
+
+          <p class="mb-3 text-gray-700">
+            {{ Math.round(main.price / 84) }} ₽/мес
+          </p>
+
+
+
+
+
+          <div class="max-w-48 mx-auto">
+
+            <a v-if="cartStore.compare[main.id] == -1">
+              <a @click=" addToCart(main), syncCompare(), cartStore.cart[cartStore.compare[main.id]].amount++" href="#"
+                class="inline-flex items-center px-7 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 ">
+                В корзину
+              </a>
+
+            </a>
+
+
+            <a v-else>
+              <a v-if="cartStore.cart[cartStore.compare[main.id]].amount === 1">
+
+                <button
+                  @click="cartStore.cart[cartStore.compare[main.id]].amount--, cartStore.deleteCart(cartStore.compare[main.id])"
+                  type="button"
+                  class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                  -
+                </button>
+
+              </a>
+              <a v-else>
+                <button
+                  @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm - main.price, cartStore.cart[cartStore.compare[main.id]].amount--"
+                  type="button"
+                  class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                  -
+                </button>
+              </a>
+
+              <a type="button"
+                class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200">
+                {{
               cartStore.cart[cartStore.compare[main.id]].amount }}
-          </a>
+              </a>
 
 
-          <button
-            @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm + main.price, cartStore.cart[cartStore.compare[main.id]].amount++"
-            type="button"
-            class=" px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 ">
-            +
-          </button>
+              <button
+                @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm + main.price, cartStore.cart[cartStore.compare[main.id]].amount++"
+                type="button"
+                class=" px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 ">
+                +
+              </button>
+            </a>
 
-        </a>
+            <button
+                type="button"
+                class="ml-1 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 ">
+                ❤
+              </button>
 
 
+          </div>
+
+
+        </div>
 
       </div>
+      <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+      <span class="block text-sm text-gray-500 sm:text-center ">© 2024 <a href="https://github.com/Dexone"
+          class="hover:underline">Dexone</a>. All Rights Reserved.</span>
     </div>
 
-  </div>
-  <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -171,11 +212,7 @@ import { FwbPagination } from 'flowbite-vue'
 
 const runtimeConfig = useRuntimeConfig()
 console.log(runtimeConfig.public.apiBase)
-// const allProducts = useFetch(`http://localhost:3000/products`)
 
-
-const showElement = ref(true)
-const showPrice = ref(true)
 const showColor = ref(true)
 
 
@@ -226,7 +263,8 @@ watch(cartStore.cart, () => {
 async function update() {
   const page = currentPage.value
 
-
+  // ${runtimeConfig.public.apiBase}
+  // http://localhost:3000
   const { data } = await useFetch(`${runtimeConfig.public.apiBase}/products?${search.join('')}&_page=${page}`)
   // totalPages.value = data.value.pages
 

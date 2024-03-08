@@ -133,7 +133,9 @@ const route = useRoute()
 
 const additionalData = ref([])
 const runtimeConfig = useRuntimeConfig()
-const { data: product } = await useFetch(`${runtimeConfig.public.apiBase}/products/${route.params.id}`)
+// ${runtimeConfig.public.apiBase}
+// http://localhost:3000
+const { data: product } = await useFetch(`${runtimeConfig.public.apiBase}/${route.params.id}`)
 
 additionalData.value = [{
     1: product.value.image[1],
