@@ -75,63 +75,64 @@
 
 
         <div class="p-5">
-          <h5 class="mb-2 text-1xl font-bold text-gray-900">
+          <h5 class="mb-1 text-xl font-medium text-gray-900 ">
             <NuxtLink :to="`/product/${main.id}`">
               {{ main.brand }} {{ main.model }}
             </NuxtLink>
           </h5>
 
-          <p class="mb-3 h-10 text-gray-700">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
+          <p class="mb-3 h-10 text-sm text-gray-500">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
               main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
           <div class="max-h-44">
             <img v-bind:src="main.image[1]" class="rounded-t-lg -ml-5" />
           </div>
 
-          <h5 class="mb-2 text-1xl font-bold tracking-tight text-gray-900">
+          <h5 class="mb-1 text-xl font-medium text-gray-900 ">
             {{ main.price }} ₽
           </h5>
 
-          <p class="mb-3 text-gray-700">
+          <p class="mb-3 text-sm text-gray-500 ">
             {{ Math.round(main.price / 84) }} ₽/мес
           </p>
 
 
 
 
+          <div class=" max-w-48 mx-auto  flex mt-4 md:mt-6 ">
 
-          <div class="max-w-48 mx-auto">
 
-            <a v-if="cartStore.compare[main.id] == -1">
-              <a @click=" addToCart(main), syncCompare(), cartStore.cart[cartStore.compare[main.id]].amount++" href="#"
-                class="inline-flex items-center px-7 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-gray-800 ">
+              <a v-if="cartStore.compare[main.id] == -1" @click=" addToCart(main), syncCompare(), cartStore.cart[cartStore.compare[main.id]].amount++" href="#"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                 В корзину
               </a>
 
-            </a>
 
 
             <a v-else>
+
+
+
               <a v-if="cartStore.cart[cartStore.compare[main.id]].amount === 1">
 
-                <button
+                <a
                   @click="cartStore.cart[cartStore.compare[main.id]].amount--, cartStore.deleteCart(cartStore.compare[main.id])"
-                  type="button"
-                  class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                  href="#"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-black bg-white border rounded-s-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                   -
-                </button>
+                </a>
 
               </a>
               <a v-else>
-                <button
+                <a
                   @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm - main.price, cartStore.cart[cartStore.compare[main.id]].amount--"
-                  type="button"
-                  class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100">
+                  href="#"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-black bg-white border rounded-s-lg hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                   -
-                </button>
+              </a>
               </a>
 
-              <a type="button"
-                class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200">
+              <a href="#"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-black bg-white border  hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                 {{
               cartStore.cart[cartStore.compare[main.id]].amount }}
               </a>
@@ -139,24 +140,26 @@
 
               <button
                 @click="cartStore.cart[cartStore.compare[main.id]].amountSumm = cartStore.cart[cartStore.compare[main.id]].amountSumm + main.price, cartStore.cart[cartStore.compare[main.id]].amount++"
-                type="button"
-                class=" px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 ">
+                href="#"
+                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-black bg-white border rounded-e-lg hover:bg-gray- focus:ring-4 focus:outline-none focus:ring-blue-300">
                 +
               </button>
+
             </a>
 
-            <button
-                type="button"
-                class="ml-1 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 ">
-                ❤
-              </button>
-
-
+            <a href="#" class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 ">❤</a>
+      
           </div>
+
+
 
 
         </div>
 
+
+
+
+        
       </div>
       <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
 
@@ -265,7 +268,7 @@ async function update() {
 
   // ${runtimeConfig.public.apiBase}
   // http://localhost:3000
-  const { data } = await useFetch(`${runtimeConfig.public.apiBase}/products?${search.join('')}&_page=${page}`)
+  const { data } = await useFetch(`http://localhost:3000/products?${search.join('')}&_page=${page}`)
   // totalPages.value = data.value.pages
 
   const mainData = data.value.map((item, index) => {

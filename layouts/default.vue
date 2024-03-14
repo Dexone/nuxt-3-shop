@@ -45,16 +45,15 @@
 
 
 
-
+                
 
                         <NuxtLink to="/cart">
                             <a href="#" class="text-base  text-gray-700  hover:underline">Корзина </a>
 
                             <span
                                 class="inline-flex items-center justify-center w-5 h-5 me-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full">
-                                1
-                                <span class="sr-only">{{
-                                    cartStore.getCartLength }}</span>
+                                {{
+                                    cartStore.getCartLength }}
                             </span>
                         </NuxtLink>
 
