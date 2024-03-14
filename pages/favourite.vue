@@ -1,77 +1,8 @@
 <template>
-
   <main class="bg-white  max-w-7xl mx-auto">
 
-
-
-    <div class="max-w-7xl mx-auto">
-      <a class="block relative p-6 bg-gray-100 border border-gray-200 rounded-lg shadow mx-5">
-
-
-
-
-        <form class="max-w-sm">
-          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
-          <div class="flex">
-            <input v-model="otPriceVM"
-              class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
-              placeholder="Цена от">
-            </input>
-            <input type="text" v-model="doPriceVM"
-              class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
-              placeholder="Цена до">
-          </div>
-        </form>
-
-
-
-
-
-        <form class="max-w-sm mt-2">
-          <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label>
-          <div class="flex">
-            <input v-model="powerVM[0]"
-              class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
-              placeholder="Цена от">
-            </input>
-            <input type="text" v-model="powerVM[1]"
-              class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
-              placeholder="Цена до">
-          </div>
-        </form>
-
-
-
-
-
-
-
-        <label class="block mb-2 text-sm font-medium text-gray-900 mt-2">Цвет:</label>
-        <div class="flex items-center inline-flex mr-2" v-for="color, index in colors">
-          <input v-model="colorsVM" :value="color" type="checkbox"
-            class="w-4 h-4 text-gray-600 border-gray-300 rounded">
-          <label class="ms-2 text-sm font-medium text-gray-900">{{ color }}</label>
-        </div>
-
-
-
-
-
-
-
-
-
-      </a>
-
-
-    </div>
-
-
-
-
-
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow inline-block m-5"
-      v-for="main, index in mainInfo">
+<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow inline-block m-4"
+      v-for="main, index in cartStore.favourite">
 
       <h5 class="mb-1 text-xl font-medium text-gray-900 ml-4 pt-4">
         <NuxtLink :to="`/product/${main.id}`">
@@ -171,116 +102,15 @@
       </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-    <span class="block text-sm text-gray-500 sm:text-center ">© 2024 <a href="https://github.com/Dexone"
-        class="hover:underline">Dexone</a>. All Rights Reserved.</span>
-
-
-  </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</main>
 </template>
 
 
 <script setup>
 import { useCart } from '../store/carStore'
-import { FwbPagination } from 'flowbite-vue'
-
-const runtimeConfig = useRuntimeConfig()
-console.log(runtimeConfig.public.apiBase)
-
-const showColor = ref(true)
-
-
-const powerVM = ref([100, 550])
-
-const colorsVM = ref([])
-
-const currentPage = ref(1)
-
-const mainInfo = ref(0)
 const cartStore = useCart();
-const totalPages = ref(3)
 
 
-const otPriceVM = ref(2000000)
-const doPriceVM = ref(12000000)
-
-
-let colors = ["Черный", "Красный", "Серый", "Белый", "Коричневый", "Синий", "Серебристый"]
-let search = []
-
-
-function searchPush() { //строка поиска
-  search = []
-  for (let i = 0; i < colorsVM.value.length; i++) {
-    search.push("&color=" + colorsVM.value[i])
-  }
-  search.push("&power_gte=" + powerVM.value[0] + "&power_lte=" + powerVM.value[1])
-  search.push("&price_gte=" + otPriceVM.value + "&price_lte=" + doPriceVM.value)
-}
-
-
-watchEffect(() => {
-  colorsVM.value
-  powerVM.value
-  doPriceVM.value
-  otPriceVM.value
-  searchPush()
-  update()
-})
 
 
 watch(cartStore.cart, () => {
@@ -288,59 +118,9 @@ watch(cartStore.cart, () => {
 })
 
 
-async function update() {
-  const page = currentPage.value
-
-  // ${runtimeConfig.public.apiBase}
-  // http://localhost:3000
-  const { data } = await useFetch(`${runtimeConfig.public.apiBase}/products?${search.join('')}&_page=${page}`)
-  // totalPages.value = data.value.pages
-
-  const mainData = data.value.map((item, index) => {
-    return {
-      id: data.value[index].id,
-      brand: data.value[index].brand,
-      model: data.value[index].model,
-      year: data.value[index].year,
-      power: data.value[index].power,
-      kuzov: data.value[index].kuzov,
-      transmission: data.value[index].transmission,
-      engine: data.value[index].engine,
-      color: data.value[index].color,
-      price: data.value[index].price,
-      image: {
-        1: data.value[index].image[1],
-        2: data.value[index].image[2],
-        3: data.value[index].image[3],
-        4: data.value[index].image[4],
-        5: data.value[index].image[5],
-      },
-      amount: 0, //количество штук в карточке
-      amountSumm: data.value[index].price //сумма товаров в карточке
-    }
-  })
-  mainInfo.value = mainData
-}
-
-function deleteCart(index) {
-  cartStore.deleteCart(index)
-}
-
-
-
-
-watch(currentPage, () => {
-  update()
-})
-await update()
-syncCompare()
-syncSimile()
-
 function addToCart(value) {
   cartStore.addToCart(value);
 }
-
-
 
 function addToFavourite(value) {
   cartStore.addToFavourite(value);
@@ -364,22 +144,5 @@ function syncSimile() {
 function deleteFavourite(index) {
   cartStore.deleteFavourite(index)
 }
-
 </script>
 
-
-
-
-<style scoped>
-.slider-demo-block {
-
-  display: flex;
-  align-items: center;
-  width: 150px;
-}
-
-.slider-demo-block .el-slider {
-  margin-top: 0;
-  margin-left: 12px;
-}
-</style>

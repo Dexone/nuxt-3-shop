@@ -37,7 +37,7 @@
                     <div class="flex items-center space-x-4 rtl:space-x-reverse  font-medium pt-2">
 
 
-                        <NuxtLink to="/cart">
+                        <NuxtLink to="/favourite">
                             <a href="#" class="text-base  text-blue-700  hover:underline">Избранное </a>
 
                         </NuxtLink>

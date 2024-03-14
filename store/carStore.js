@@ -2,11 +2,13 @@ import { defineStore } from "pinia";
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 export const useCart = defineStore("cartStore", {
-  state: () => ({ cart: [], summ: 0, cartLength: 0, compare: [] }),
+  state: () => ({ cart: [], summ: 0, cartLength: 0, compare: [], favourite: [], simile: [] }),
   getters: {
     getCart: (state) => state.cart,
     getSumm: (state) => state.summ,
     getCompare: (state) => state.compare,
+    getSimile: (state) => state.simile,
+    getFavourite: (state) => state.favourite,
     getCartLength: (state) => state.cartLength,
   },
   actions: {
@@ -22,25 +24,45 @@ export const useCart = defineStore("cartStore", {
       }
     },
     syncCompare() {
-  
       this.compare = []
       let idArray = []
       for (let i = 0; i < this.cart.length; i++) {
         idArray.push(this.cart[i].id)
       } //получили массив с id товаров в корзине
-
-
       let a = 0
-
       for (let b = 0; b < 22; b++) {
         this.compare.push(idArray.indexOf(a))
         a++
       }
       console.log(this.compare);
-
     },
+
+
+syncSimile(){
+  this.simile = []
+  let idArray = []
+  for (let i = 0; i < this.favourite.length; i++) {
+    idArray.push(this.favourite[i].id)
+  } //получили массив с id товаров в корзине
+  let a = 0
+  for (let b = 0; b < 22; b++) {
+    this.simile.push(idArray.indexOf(a))
+    a++
+  }
+  console.log(this.simile);
+},
+
+
     deleteCart(index) {
       this.cart.splice(index, 1)
+    },
+
+    addToFavourite(value) {
+      this.favourite.push(value);
+    },
+
+    deleteFavourite(index) {
+      this.favourite.splice(index, 1)
     },
 
   },

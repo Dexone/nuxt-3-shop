@@ -7,6 +7,8 @@ function deleteCart(index) {
 }
 
 
+
+
 function syncSumm() {
   cartStore.syncSumm();
 }
