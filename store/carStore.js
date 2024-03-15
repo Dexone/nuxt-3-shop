@@ -6,15 +6,16 @@ export const useCart = defineStore("cartStore", {
   getters: {
     getCart: (state) => state.cart,
     getSumm: (state) => state.summ,
-    getCompare: (state) => state.compare,
-    getSimile: (state) => state.simile,
-    getFavourite: (state) => state.favourite,
     getCartLength: (state) => state.cartLength,
+    getCompare: (state) => state.compare,
+    getFavourite: (state) => state.favourite,
+    getSimile: (state) => state.simile,
   },
   actions: {
     addToCart(value) {
       this.cart.push(value);
     },
+
     syncSumm() {
       this.summ = 0
       this.cartLength = 0
@@ -23,6 +24,7 @@ export const useCart = defineStore("cartStore", {
         this.cartLength = this.cartLength + this.cart[i].amount
       }
     },
+
     syncCompare() {
       this.compare = []
       let idArray = []
@@ -37,21 +39,19 @@ export const useCart = defineStore("cartStore", {
       console.log(this.compare);
     },
 
-
-syncSimile(){
-  this.simile = []
-  let idArray = []
-  for (let i = 0; i < this.favourite.length; i++) {
-    idArray.push(this.favourite[i].id)
-  } //получили массив с id товаров в корзине
-  let a = 0
-  for (let b = 0; b < 22; b++) {
-    this.simile.push(idArray.indexOf(a))
-    a++
-  }
-  console.log(this.simile);
-},
-
+    syncSimile() {
+      this.simile = []
+      let idArray = []
+      for (let i = 0; i < this.favourite.length; i++) {
+        idArray.push(this.favourite[i].id)
+      } //получили массив с id товаров в корзине
+      let a = 0
+      for (let b = 0; b < 22; b++) {
+        this.simile.push(idArray.indexOf(a))
+        a++
+      }
+      console.log(this.simile);
+    },
 
     deleteCart(index) {
       this.cart.splice(index, 1)
@@ -64,7 +64,6 @@ syncSimile(){
     deleteFavourite(index) {
       this.favourite.splice(index, 1)
     },
-
   },
   persist: true,
 });
