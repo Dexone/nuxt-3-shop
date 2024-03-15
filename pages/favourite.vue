@@ -1,7 +1,7 @@
 <template>
   <main class="bg-white  max-w-7xl mx-auto">
 
-<div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow inline-block m-4"
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow inline-block m-5"
       v-for="main, index in cartStore.favourite">
 
       <h5 class="mb-1 text-xl font-medium text-gray-900 ml-4 pt-4">

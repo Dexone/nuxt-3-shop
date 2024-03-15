@@ -70,7 +70,7 @@
 
 
 
-    <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow inline-block m-5"
+    <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow inline-block m-5"
       v-for="main, index in mainInfo">
 
       <h5 class="mb-1 text-xl font-medium text-gray-900 ml-4 pt-4">
@@ -175,17 +175,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages"></FwbPagination>
 
 
@@ -195,36 +184,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-    <span class="block text-sm text-gray-500 sm:text-center ">© 2024 <a href="https://github.com/Dexone"
-        class="hover:underline">Dexone</a>. All Rights Reserved.</span>
-
-
   </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -238,18 +198,17 @@
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
 
+// в мобильной версии в корзине цена не влезает
+// в мобильной версии карточки не влезают, внизу появляется прокрутка
+// кол-во страниц в пагинации не меняется от включения фильтров
+
 const runtimeConfig = useRuntimeConfig()
 console.log(runtimeConfig.public.apiBase)
 
 const showColor = ref(true)
-
-
 const powerVM = ref([100, 550])
-
 const colorsVM = ref([])
-
 const currentPage = ref(1)
-
 const mainInfo = ref(0)
 const cartStore = useCart();
 const totalPages = ref(3)
@@ -293,7 +252,7 @@ async function update() {
 
   // ${runtimeConfig.public.apiBase}
   // http://localhost:3000
-  const { data } = await useFetch(`${runtimeConfig.public.apiBase}/products?${search.join('')}&_page=${page}`)
+  const { data } = await useFetch(`http://localhost:3000/products?${search.join('')}&_page=${page}`)
   // totalPages.value = data.value.pages
 
   const mainData = data.value.map((item, index) => {
