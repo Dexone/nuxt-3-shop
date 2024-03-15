@@ -108,7 +108,7 @@ const route = useRoute()
 const runtimeConfig = useRuntimeConfig()
 // ${runtimeConfig.public.apiBase}
 // http://localhost:3000
-const { data: product } = await useFetch(`http://localhost:3000/products/${route.params.id}`)
+const { data: product } = await useFetch(`${runtimeConfig.public.apiBase}/products/${route.params.id}`)
 
 const additionalData = ref([])
 additionalData.value = [{
