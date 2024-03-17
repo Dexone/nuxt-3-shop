@@ -13,10 +13,10 @@
 
 
         <form class="max-w-sm inline-block mr-2">
-          <!-- <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label> -->
-          <div class="slider-demo-block">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
+          <!-- <div class="slider-demo-block">
             <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
-          </div>
+          </div> -->
           <div class="flex">
             <input v-model="otPrice"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
@@ -40,10 +40,10 @@
         </form>
 
         <form class="max-w-sm mt-2 mr-2 inline-block">
-          <!-- <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label> -->
-          <div class="slider-demo-block">
+          <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label>
+          <!-- <div class="slider-demo-block">
             <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
-          </div>
+          </div> -->
           <div class="flex">
             <input v-model="powerVM[0]"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
@@ -172,8 +172,8 @@ import { FwbPagination } from 'flowbite-vue'
 
 
 
-const price = ref([100, 550])
-const priceVM = ref([2000000, 12000000])
+// const price = ref([100, 550])
+// const priceVM = ref([2000000, 12000000])
 
 
 const otPrice = ref()
