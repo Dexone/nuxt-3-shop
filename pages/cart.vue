@@ -5,7 +5,7 @@
       <div class="flex items-center justify-between mb-4">
         <h5 class="text-xl font-bold leading-none text-gray-900 ">Сумма товаров:</h5>
         <a class="text-sm font-medium text-blue-600 hover:underline ">
-          {{ cartStore.summ }} ₽
+          {{ cartStore.summ.toLocaleString() }} ₽
         </a>
       </div>
 
@@ -27,7 +27,7 @@
               </div>
 
               <div class="inline-flex text-xl items-center text-base font-semibold text-gray-900 mr-2">
-                {{ main.amountSumm }} ₽
+                {{ main.amountSumm.toLocaleString() }} ₽
               </div>
 
 

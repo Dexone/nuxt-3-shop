@@ -1,4 +1,3 @@
-
 <template>
 
   <div>
@@ -8,5 +7,3 @@
   </div>
 
 </template>
-
-

@@ -2,18 +2,27 @@
 
   <main class="bg-white  max-w-7xl mx-auto">
 
-
     <div class="max-w-7xl mx-auto ">
-      <a class="block relative p-6 bg-gray-100 border border-gray-200 rounded-lg shadow mx-5">
+
+
+
+
+      <a class="block relative p-6 bg-gray-50 border border-gray-200 rounded-lg shadow mx-5">
+
+
+
 
         <form class="max-w-sm inline-block mr-2">
-          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
+          <!-- <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label> -->
+          <div class="slider-demo-block">
+            <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
+          </div>
           <div class="flex">
-            <input v-model="otPriceVM"
+            <input v-model="otPrice"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
               placeholder="Цена от">
             </input>
-            <input type="text" v-model="doPriceVM"
+            <input type="text" v-model="doPrice"
               class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
               placeholder="Цена до">
           </div>
@@ -31,7 +40,10 @@
         </form>
 
         <form class="max-w-sm mt-2 mr-2 inline-block">
-          <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label>
+          <!-- <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label> -->
+          <div class="slider-demo-block">
+            <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
+          </div>
           <div class="flex">
             <input v-model="powerVM[0]"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
@@ -41,6 +53,10 @@
               class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
               placeholder="Цена до">
           </div>
+
+
+
+
         </form>
 
         <form class="max-w-sm mt-2 inline-block">
@@ -81,8 +97,8 @@
         <img class=" rounded-t-lg " v-bind:src="main.image[1]" />
       </div>
 
-      <h5 class="mb-1 text-xl font-medium text-gray-900 ml-4">{{ main.price }} ₽</h5>
-      <span class="text-sm text-gray-500 ml-4"> {{ Math.round(main.price / 84) }} ₽/мес</span>
+      <h5 class="mb-1 text-xl font-medium text-gray-900 ml-4">{{ main.price.toLocaleString() }} ₽</h5>
+      <span class="text-sm text-gray-500 ml-4"> {{ main.kprice.toLocaleString() }} ₽/мес</span>
 
 
       <div class="flex flex-col items-center pb-10">
@@ -154,6 +170,27 @@
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
 
+
+
+const price = ref([100, 550])
+const priceVM = ref([2000000, 12000000])
+
+
+const otPrice = ref()
+const doPrice = ref()
+const otPriceVM = ref(2000000)
+const doPriceVM = ref(12000000)
+watch(otPrice, () => {
+  otPrice.value = Number(otPrice.value.replace(/\D/g, '')).toLocaleString();
+  otPriceVM.value = (Number(otPrice.value.replace(/\D/g, '')))
+})
+watch(doPrice, () => {
+  doPrice.value = Number(doPrice.value.replace(/\D/g, '')).toLocaleString();
+  doPriceVM.value = (Number(doPrice.value.replace(/\D/g, '')))
+})
+
+
+
 const runtimeConfig = useRuntimeConfig()
 const cartStore = useCart();
 
@@ -165,8 +202,14 @@ const kpp = ref("Любая")
 const engine = ref("Любой")
 const mainInfo = ref(0)
 const totalPages = ref(3)
-const otPriceVM = ref(2000000)
-const doPriceVM = ref(12000000)
+
+
+
+
+
+
+
+
 let colors = ["Черный", "Красный", "Серый", "Белый", "Коричневый", "Синий", "Серебристый"]
 let search = []
 function searchPush() { //строка поиска
@@ -186,6 +229,8 @@ function searchPush() { //строка поиска
   }
 }
 
+
+
 async function update() {
   const page = currentPage.value
   // ${runtimeConfig.public.apiBase}
@@ -203,6 +248,7 @@ async function update() {
       engine: data.value[index].engine,
       color: data.value[index].color,
       price: data.value[index].price,
+      kprice: Math.round((data.value[index].price) / 84),
       image: {
         1: data.value[index].image[1],
         2: data.value[index].image[2],
@@ -262,14 +308,14 @@ function deleteFavourite(index) {
 
 <style scoped>
 .slider-demo-block {
-
   display: flex;
   align-items: center;
-  width: 150px;
+  max-width: 350px;
 }
 
 .slider-demo-block .el-slider {
   margin-top: 0;
-  margin-left: 12px;
+  margin-left: 15px;
+  margin-right: 6px;
 }
 </style>
