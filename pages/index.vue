@@ -377,26 +377,11 @@ function deleteFavourite(index) {
 
 
 <script>
-//   import Slider from '@vueform/slider'
-
-// export default {
-//   components: { Slider },
-//   data: () => ({
-//     value: [2000000, 3000000],
-//   })
-// }
 import Slider from '@vueform/slider'
-
 export default {
-  components: {
-    Slider,
-  },
-  data() {
-    return {
-      value: [20, 40],
-    }
-
-  }
-
+  components: { Slider },
+  data: () => ({
+    value: [20, 40]
+  })
 }
 </script>
