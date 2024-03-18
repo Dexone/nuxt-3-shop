@@ -159,16 +159,27 @@
       </div>
     </div>
 
+    <div>
+      <Slider v-model="value" />
+    </div>
+
     <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages">
     </FwbPagination>
 
   </main>
+
+
+
+
 </template>
 
 
 <script setup>
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
+
+
+
 
 
 
@@ -319,3 +330,16 @@ function deleteFavourite(index) {
   margin-right: 6px;
 }
 </style>
+
+
+<style src="@vueform/slider/themes/default.css"></style>
+<script>
+  import Slider from '@vueform/slider'
+
+export default {
+  components: { Slider },
+  data: () => ({
+    value: [20, 40]
+  })
+}
+</script>
