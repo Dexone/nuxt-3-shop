@@ -376,6 +376,9 @@ function deleteFavourite(index) {
 </style>
 
 
+<style src="@vueform/slider/themes/default.css"></style>
+
+
 <script>
 import Slider from '@vueform/slider'
 export default {
