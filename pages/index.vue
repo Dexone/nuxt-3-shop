@@ -17,6 +17,12 @@
           <!-- <div class="slider-demo-block">
             <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
           </div> -->
+
+
+          <!-- <div>
+            <Slider v-model="value" class="slider-blue" />
+          </div> -->
+
           <div class="flex">
             <input v-model="otPrice"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
@@ -26,6 +32,7 @@
               class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
               placeholder="Цена до">
           </div>
+
         </form>
 
         <form class="max-w-sm mt-2 mr-2 inline-block">
@@ -40,10 +47,10 @@
         </form>
 
         <form class="max-w-sm mt-2 mr-2 inline-block">
-          <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label>
-          <!-- <div class="slider-demo-block">
+          <!-- <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label> -->
+          <div class="slider-demo-block">
             <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
-          </div> -->
+          </div>
           <div class="flex">
             <input v-model="powerVM[0]"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
@@ -159,9 +166,7 @@
       </div>
     </div>
 
-    <div>
-      <Slider v-model="value" />
-    </div>
+
 
     <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages">
     </FwbPagination>
@@ -332,14 +337,40 @@ function deleteFavourite(index) {
 </style>
 
 
-<style src="@vueform/slider/themes/default.css"></style>
-<script>
-  import Slider from '@vueform/slider'
+<!-- <style>
+.slider-blue {
+  --slider-connect-bg: #3B82F6;
+  --slider-tooltip-bg: #3B82F6;
+  --slider-handle-ring-color: #3B82F630;
 
-export default {
-  components: { Slider },
-  data: () => ({
-    value: [20, 40]
-  })
+
+  --slider-height: 2px;
 }
+</style> -->
+
+
+<script>
+//   import Slider from '@vueform/slider'
+
+// export default {
+//   components: { Slider },
+//   data: () => ({
+//     value: [2000000, 3000000],
+//   })
+// }
+//   import Slider from '@vueform/slider'
+
+// export default {
+//   components: {
+//     Slider,
+//   },
+//   data() {
+//     return {
+//       value: [20, 40],
+//       step: "5"
+//     }
+
+//   }
+  
+// }
 </script>
