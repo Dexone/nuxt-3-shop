@@ -19,22 +19,22 @@
           </div> -->
 
 
-          <!-- <div>
-            <Slider v-model="value" class="slider-blue" />
-          </div> -->
+          <div>
+            <Slider :tooltips="false" v-model="slider" @input="ffSlider()" class="slider-blue mb-2" :min="5"
+              :max="13000000" :lazy="false" />
+          </div>
 
           <div class="flex">
             <input v-model="otPrice"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
               placeholder="Цена от">
             </input>
-            <input type="text" v-model="doPrice"
+            <input v-model="doPrice"
               class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
               placeholder="Цена до">
           </div>
 
         </form>
-
         <form class="max-w-sm mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Трансмиссия:</label>
           <select v-model="kpp" id="countries"
@@ -48,9 +48,9 @@
 
         <form class="max-w-sm mt-2 mr-2 inline-block">
           <!-- <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label> -->
-          <div class="slider-demo-block">
+          <!-- <div class="slider-demo-block">
             <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
-          </div>
+          </div> -->
           <div class="flex">
             <input v-model="powerVM[0]"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
@@ -183,29 +183,52 @@
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
 
-
-
-
-
-
-// const price = ref([100, 550])
+// const price = ref([])
 // const priceVM = ref([2000000, 12000000])
+
+
+// function ffOtPrice() {
+//   console.log(price)
+//   price.value[0] = Number(price.value[0].replace(/\D/g, '')).toLocaleString();
+//   priceVM.value[0] = (Number(price.value[0].replace(/\D/g, '')))
+// }
+
+// function ffDoPrice() {
+//   console.log(price)
+//   price.value[1] = Number(price.value[1].replace(/\D/g, '')).toLocaleString();
+//   priceVM.value[1] = (Number(price.value[1].replace(/\D/g, '')))
+// }
+
+
+
 
 
 const otPrice = ref()
 const doPrice = ref()
 const otPriceVM = ref(2000000)
 const doPriceVM = ref(12000000)
+
+
+const slider = ref([2000000, 12000000])
+
+function ffSlider() {
+  otPrice.value = String(slider.value[0])
+  doPrice.value = String(slider.value[1])
+}
+
+
 watch(otPrice, () => {
+  console.log(otPrice)
   otPrice.value = Number(otPrice.value.replace(/\D/g, '')).toLocaleString();
   otPriceVM.value = (Number(otPrice.value.replace(/\D/g, '')))
+  searchPush(), update()
 })
+
 watch(doPrice, () => {
   doPrice.value = Number(doPrice.value.replace(/\D/g, '')).toLocaleString();
   doPriceVM.value = (Number(doPrice.value.replace(/\D/g, '')))
+  searchPush(), update()
 })
-
-
 
 const runtimeConfig = useRuntimeConfig()
 const cartStore = useCart();
@@ -229,6 +252,7 @@ const totalPages = ref(3)
 let colors = ["Черный", "Красный", "Серый", "Белый", "Коричневый", "Синий", "Серебристый"]
 let search = []
 function searchPush() { //строка поиска
+
   search = []
   for (let i = 0; i < colorsVM.value.length; i++) {
     search.push("&color=" + colorsVM.value[i])
@@ -243,6 +267,7 @@ function searchPush() { //строка поиска
   if (engine.value != "Любой") {
     search.push("&engine=" + engine.value)
   }
+
 }
 
 
@@ -283,7 +308,7 @@ async function update() {
 
 
 
-watch([colorsVM, powerVM, doPriceVM, otPriceVM, kpp, engine], () => {
+watch([colorsVM, powerVM, kpp, engine], () => {
   searchPush(), update()
 })
 watch(cartStore.cart, () => {
@@ -337,7 +362,7 @@ function deleteFavourite(index) {
 </style>
 
 
-<!-- <style>
+<style>
 .slider-blue {
   --slider-connect-bg: #3B82F6;
   --slider-tooltip-bg: #3B82F6;
@@ -346,7 +371,7 @@ function deleteFavourite(index) {
 
   --slider-height: 2px;
 }
-</style> -->
+</style>
 
 
 <script>
@@ -358,19 +383,18 @@ function deleteFavourite(index) {
 //     value: [2000000, 3000000],
 //   })
 // }
-//   import Slider from '@vueform/slider'
+import Slider from '@vueform/slider'
 
-// export default {
-//   components: {
-//     Slider,
-//   },
-//   data() {
-//     return {
-//       value: [20, 40],
-//       step: "5"
-//     }
+export default {
+  components: {
+    Slider,
+  },
+  data() {
+    return {
+      value: [20, 40],
+    }
 
-//   }
-  
-// }
+  }
+
+}
 </script>
