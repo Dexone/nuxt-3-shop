@@ -173,7 +173,9 @@
 
   </main>
 
-
+  <div>
+    <Slider v-model="value" />
+  </div>
 
 
 </template>
