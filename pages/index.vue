@@ -14,14 +14,10 @@
 
         <form class="max-w-sm inline-block mr-2">
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
-          <!-- <div class="slider-demo-block">
-            <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
-          </div> -->
-
 
           <div>
-            <Slider :tooltips="false" v-model="slider" @input="ffSlider()" class="slider-blue mb-2" :min="5"
-              :max="13000000" :lazy="false" />
+            <Slider :tooltips="false" v-model="sliderPrice" @input="ffSliderPrice()" class="slider-blue ml-5 mr-5"
+              :min="2000000" :max="12000000" :lazy="false" />
           </div>
 
           <div class="flex">
@@ -35,7 +31,7 @@
           </div>
 
         </form>
-        <form class="max-w-sm mt-2 mr-2 inline-block">
+        <!-- <form class="max-w-sm mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Трансмиссия:</label>
           <select v-model="kpp" id="countries"
             class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 w-36">
@@ -44,13 +40,14 @@
             <option>МКПП</option>
             <option>Вариатор</option>
           </select>
-        </form>
+        </form> -->
 
         <form class="max-w-sm mt-2 mr-2 inline-block">
-          <!-- <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label> -->
-          <!-- <div class="slider-demo-block">
-            <el-slider v-model="powerVM" range show-stops :max="550" :min="100" el-switch-color/>
-          </div> -->
+          <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label>
+          <div>
+            <Slider :tooltips="false" v-model="sliderPower" @input="ffSliderPower()" class="slider-blue  ml-5 mr-5"
+              :min="100" :max="550" :lazy="false" />
+          </div>
           <div class="flex">
             <input v-model="powerVM[0]"
               class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
@@ -100,7 +97,7 @@
       <p class="text-sm text-gray-500 ml-4 mr-4">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
               main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
 
-      <div class="flex flex-col items-center">
+      <div class="flex flex-col items-center h-48">
         <img class=" rounded-t-lg " v-bind:src="main.image[1]" />
       </div>
 
@@ -172,37 +169,16 @@
     </FwbPagination>
 
   </main>
-
   <div>
-    <Slider v-model="value" />
+    <Multiselect v-model="kpp" :options="options" mode="tags" class="multiselect-blue"/>
   </div>
-
-
+{{ kpp }}
 </template>
 
 
 <script setup>
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
-
-// const price = ref([])
-// const priceVM = ref([2000000, 12000000])
-
-
-// function ffOtPrice() {
-//   console.log(price)
-//   price.value[0] = Number(price.value[0].replace(/\D/g, '')).toLocaleString();
-//   priceVM.value[0] = (Number(price.value[0].replace(/\D/g, '')))
-// }
-
-// function ffDoPrice() {
-//   console.log(price)
-//   price.value[1] = Number(price.value[1].replace(/\D/g, '')).toLocaleString();
-//   priceVM.value[1] = (Number(price.value[1].replace(/\D/g, '')))
-// }
-
-
-
 
 
 const otPrice = ref()
@@ -211,11 +187,10 @@ const otPriceVM = ref(2000000)
 const doPriceVM = ref(12000000)
 
 
-const slider = ref([2000000, 12000000])
-
-function ffSlider() {
-  otPrice.value = String(slider.value[0])
-  doPrice.value = String(slider.value[1])
+const sliderPrice = ref([2000000, 12000000])
+function ffSliderPrice() {
+  otPrice.value = String(sliderPrice.value[0])
+  doPrice.value = String(sliderPrice.value[1])
 }
 
 
@@ -239,22 +214,20 @@ const cartStore = useCart();
 const powerVM = ref([100, 550])
 const colorsVM = ref([])
 const currentPage = ref(1)
-const kpp = ref("Любая")
+const kpp = ref([])
 const engine = ref("Любой")
 const mainInfo = ref(0)
 const totalPages = ref(3)
 
-
-
-
-
-
-
+const sliderPower = ref([100, 550])
+function ffSliderPower() {
+  powerVM.value[0] = sliderPower.value[0]
+  powerVM.value[1] = sliderPower.value[1]
+}
 
 let colors = ["Черный", "Красный", "Серый", "Белый", "Коричневый", "Синий", "Серебристый"]
 let search = []
 function searchPush() { //строка поиска
-
   search = []
   for (let i = 0; i < colorsVM.value.length; i++) {
     search.push("&color=" + colorsVM.value[i])
@@ -262,14 +235,14 @@ function searchPush() { //строка поиска
   search.push("&power_gte=" + powerVM.value[0] + "&power_lte=" + powerVM.value[1])
   search.push("&price_gte=" + otPriceVM.value + "&price_lte=" + doPriceVM.value)
 
-  if (kpp.value != "Любая") {
-    search.push("&transmission=" + kpp.value)
-  }
-
   if (engine.value != "Любой") {
     search.push("&engine=" + engine.value)
   }
 
+  for (let i = 0; i < kpp.value.length; i++) {
+    search.push("&transmission=" + kpp.value)
+  }
+  console.log(search)
 }
 
 
@@ -307,10 +280,7 @@ async function update() {
 }
 
 
-
-
-
-watch([colorsVM, powerVM, kpp, engine], () => {
+watch([colorsVM, powerVM.value, kpp, engine], () => {
   searchPush(), update()
 })
 watch(cartStore.cart, () => {
@@ -343,10 +313,7 @@ function syncSimile() {
 function deleteFavourite(index) {
   cartStore.deleteFavourite(index)
 }
-
 </script>
-
-
 
 
 <style scoped>
@@ -366,25 +333,58 @@ function deleteFavourite(index) {
 
 <style>
 .slider-blue {
-  --slider-connect-bg: #3B82F6;
+  --slider-connect-bg: #1a56db;
   --slider-tooltip-bg: #3B82F6;
   --slider-handle-ring-color: #3B82F630;
+  --slider-height: 1px;
+  --slider-handle-bg: #1a56db;
+  --slider-handle-width: 13px;
+  --slider-handle-height: 13px;
+}
 
-
-  --slider-height: 2px;
+.multiselect-blue {
+  --ms-tag-bg: #DBEAFE;
+  --ms-tag-color: #2563EB;
+  --ms-border-color-active: #0066ff;
 }
 </style>
 
 
+<style src="@vueform/multiselect/themes/default.css"></style>
 <style src="@vueform/slider/themes/default.css"></style>
 
-
 <script>
+import Multiselect from '@vueform/multiselect'
+
+
+
 import Slider from '@vueform/slider'
 export default {
   components: { Slider },
   data: () => ({
     value: [20, 40]
-  })
+  }),
+
+  components: {
+    Multiselect,
+  },
+  data() {
+    return {
+      value: null,
+      options: [
+        'Любой',
+        'Бензин',
+        'Дизель',
+        'Электро',
+      ]
+    }
+  }
+
+
 }
+
+
+
+
+
 </script>

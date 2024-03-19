@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
+    "@vueform/multiselect": "^2.6.6",
     "@vueform/slider": "^2.1.10",
     "flowbite": "^2.2.1",
     "flowbite-vue": "^0.1.2",
