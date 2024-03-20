@@ -42,6 +42,13 @@
           </select>
         </form> -->
 
+
+        <div class="min-w-48 mt-2 mr-2 inline-block">
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Трансмиссия:</label>
+    <Multiselect v-model="kpp" :options="options" placeholder="Любой" mode="tags" class="multiselect-blue" />
+  </div>
+
+
         <form class="max-w-sm mt-2 mr-2 inline-block">
           <label class="block mb-2 text-sm font-medium text-gray-900">Мощность двигателя:</label>
           <div>
@@ -169,10 +176,7 @@
     </FwbPagination>
 
   </main>
-  <div>
-    <Multiselect v-model="kpp" :options="options" mode="tags" class="multiselect-blue"/>
-  </div>
-{{ kpp }}
+
 </template>
 
 
@@ -240,7 +244,7 @@ function searchPush() { //строка поиска
   }
 
   for (let i = 0; i < kpp.value.length; i++) {
-    search.push("&transmission=" + kpp.value)
+    search.push("&transmission=" + kpp.value[i])
   }
   console.log(search)
 }
@@ -340,12 +344,14 @@ function deleteFavourite(index) {
   --slider-handle-bg: #1a56db;
   --slider-handle-width: 13px;
   --slider-handle-height: 13px;
+  
 }
 
 .multiselect-blue {
   --ms-tag-bg: #DBEAFE;
   --ms-tag-color: #2563EB;
   --ms-border-color-active: #0066ff;
+  --ms-radius: 8px;
 }
 </style>
 
@@ -372,10 +378,9 @@ export default {
     return {
       value: null,
       options: [
-        'Любой',
-        'Бензин',
-        'Дизель',
-        'Электро',
+        'АКПП',
+        'МКПП',
+        'Вариатор',
       ]
     }
   }
