@@ -10,34 +10,38 @@
       <a class="block relative p-6 bg-gray-50 border border-gray-200 rounded-lg shadow mx-5">
 
 
-        <div class="min-w-48 mt-2 mr-2 inline-block">
+        <div class="min-w-64 mt-2 mr-2 inline-block">
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Марка:</label>
+          <Multiselect v-model="brands" :options="optionsBrands" placeholder="Любая" mode="single"
+            class="multiselect-blue" />
+        </div>
+
+
+        <div class="min-w-64 mt-2 mr-2 inline-block">
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Модель:</label>
+
+
+          <Multiselect v-if="brands === undefined || brands === null" v-model="model" :options="compareBrands[brands]"
+            placeholder="Любая" mode="single" class="multiselect-blue" disabled="false" />
+          <Multiselect v-else v-model="model" :options="compareBrands[brands]" placeholder="Любой" mode="single"
+            class="multiselect-blue" />
+        </div>
+
+
+
+
+
+
+        <div class="min-w-64 mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Кузов:</label>
           <Multiselect v-model="kuzov" :options="['Кроссвэн', 'Хэтчбек', 'Универсал', 'Седан', 'Кроссовер']"
             placeholder="Любой" mode="tags" class="multiselect-blue" />
         </div>
 
-        <form class="max-w-sm inline-block mr-2">
-          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
-
-          <div>
-            <Slider :tooltips="false" v-model="sliderPrice" @input="ffSliderPrice()" class="slider-blue ml-5 mr-5"
-              :min="2000000" :max="12000000" :lazy="false" />
-          </div>
-
-          <div class="flex">
-            <input v-model="otPrice"
-              class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
-              placeholder="Цена от">
-            </input>
-            <input v-model="doPrice"
-              class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
-              placeholder="Цена до">
-          </div>
-
-        </form>
+        
 
 
-        <div class="min-w-48 mt-2 mr-2 inline-block">
+        <div class="min-w-64 mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Трансмиссия:</label>
           <Multiselect v-model="kpp" :options="['АКПП', 'МКПП', 'Вариатор']" placeholder="Любая" mode="tags"
             class="multiselect-blue" />
@@ -62,31 +66,49 @@
         </form>
 
 
-        <div class="min-w-48 mt-2 mr-2 inline-block">
-          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Марка:</label>
-          <Multiselect v-model="brands" :options="optionsBrands" placeholder="Любая" mode="single"
-            class="multiselect-blue" />
-        </div>
 
 
-        <div class="min-w-48 mt-2 mr-2 inline-block">
-          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Модель:</label>
 
 
-          <Multiselect v-if="brands === undefined || brands === null" v-model="model" :options="compareBrands[brands]"
-            placeholder="Любая" mode="single" class="multiselect-blue" disabled="false" />
-          <Multiselect v-else v-model="model" :options="compareBrands[brands]" placeholder="Любой" mode="single"
-            class="multiselect-blue" />
-        </div>
+
+
+       
         <!-- disabled="false" -->
 
-        <div class="min-w-48 mt-2 mr-2 inline-block">
+        <div class="min-w-64 mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Двигатель:</label>
           <Multiselect v-model="engine" :options="['Бензин', 'Дизель', 'Электро']" placeholder="Любой" mode="tags"
             class="multiselect-blue" />
         </div>
 
-        <div class="min-w-48 mt-2 mr-2 inline-block">
+
+
+
+        <form class="max-w-sm inline-block mr-2">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
+
+          <div>
+            <Slider :tooltips="false" v-model="sliderPrice" @input="ffSliderPrice()" class="slider-blue ml-5 mr-5"
+              :min="2000000" :max="12000000" :lazy="false" />
+          </div>
+
+          <div class="flex">
+            <input v-model="otPrice"
+              class="rounded-none rounded-s-md bg-gray-0 border border-e-0 border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
+              placeholder="Цена от">
+            </input>
+            <input v-model="doPrice"
+              class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
+              placeholder="Цена до">
+          </div>
+
+        </form>
+
+
+
+
+
+        <div class="min-w-64 mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Цвет:</label>
           <Multiselect v-model="colorsVM"
             :options="['Черный', 'Красный', 'Серый', 'Белый', 'Коричневый', 'Синий', 'Серебристый']" placeholder="Любой"
