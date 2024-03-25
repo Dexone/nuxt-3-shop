@@ -223,8 +223,8 @@
           </a>
         </li>
         <li v-for="page, index in totalPages">
-          <a @click="currentPage = page, ffColor()" :class="{ 'bg-blue-50': color[index] }"
-            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{{ page }}</a>
+          <a  :class="{ 'bg-blue-50': color[index] }" @click="currentPage = page, ffColor()"
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{{ page }}</a>
         </li>
         <li>
           <a  @click="ffRight(), ffColor()"
@@ -272,6 +272,7 @@ function ffColor(){
   else {
     color.value.push(false)}
   }
+  console.log(color)
 }
 
 ffColor()
