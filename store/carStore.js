@@ -36,7 +36,6 @@ export const useCart = defineStore("cartStore", {
         this.compare.push(idArray.indexOf(a))
         a++
       }
-      console.log(this.compare);
     },
 
     syncSimile() {
@@ -50,7 +49,6 @@ export const useCart = defineStore("cartStore", {
         this.simile.push(idArray.indexOf(a))
         a++
       }
-      console.log(this.simile);
     },
 
     deleteCart(index) {

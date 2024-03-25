@@ -146,13 +146,11 @@ let count = ref(1)
 
 function ffleft() {
     count.value--
-    console.log(count.value)
     if (count.value === 0)
         count.value = 1
 }
 function ffright() {
     count.value++
-    console.log(count.value)
     if (count.value === 6)
         count.value = 5
 }

@@ -10,7 +10,11 @@
       <a class="block relative p-6 bg-gray-50 border border-gray-200 rounded-lg shadow mx-5">
 
 
-
+        <div class="min-w-48 mt-2 mr-2 inline-block">
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Кузов:</label>
+          <Multiselect v-model="kuzov" :options="['Кроссвэн', 'Хэтчбек', 'Универсал', 'Седан', 'Кроссовер']"
+            placeholder="Любой" mode="tags" class="multiselect-blue" />
+        </div>
 
         <form class="max-w-sm inline-block mr-2">
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
@@ -31,22 +35,13 @@
           </div>
 
         </form>
-        <!-- <form class="max-w-sm mt-2 mr-2 inline-block">
-          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Трансмиссия:</label>
-          <select v-model="kpp" id="countries"
-            class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 w-36">
-            <option>Любая</option>
-            <option>АКПП</option>
-            <option>МКПП</option>
-            <option>Вариатор</option>
-          </select>
-        </form> -->
 
 
         <div class="min-w-48 mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Трансмиссия:</label>
-    <Multiselect v-model="kpp" :options="options" placeholder="Любой" mode="tags" class="multiselect-blue" />
-  </div>
+          <Multiselect v-model="kpp" :options="['АКПП', 'МКПП', 'Вариатор']" placeholder="Любая" mode="tags"
+            class="multiselect-blue" />
+        </div>
 
 
         <form class="max-w-sm mt-2 mr-2 inline-block">
@@ -64,29 +59,38 @@
               class="rounded-none rounded-e-lg bg-gray-0 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  "
               placeholder="Цена до">
           </div>
-
-
-
-
         </form>
 
-        <form class="max-w-sm mt-2 inline-block">
+
+        <div class="min-w-48 mt-2 mr-2 inline-block">
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Марка:</label>
+          <Multiselect v-model="brands" :options="optionsBrands" placeholder="Любая" mode="single"
+            class="multiselect-blue" />
+        </div>
+
+
+        <div class="min-w-48 mt-2 mr-2 inline-block">
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Модель:</label>
+
+
+          <Multiselect v-if="brands === undefined || brands === null" v-model="model" :options="compareBrands[brands]"
+            placeholder="Любая" mode="single" class="multiselect-blue" disabled="false" />
+          <Multiselect v-else v-model="model" :options="compareBrands[brands]" placeholder="Любой" mode="single"
+            class="multiselect-blue" />
+        </div>
+        <!-- disabled="false" -->
+
+        <div class="min-w-48 mt-2 mr-2 inline-block">
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Двигатель:</label>
-          <select v-model="engine" id="countries"
-            class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 w-36">
-            <option>Любой</option>
-            <option>Бензин</option>
-            <option>Дизель</option>
-            <option>Электро</option>
-          </select>
-        </form>
+          <Multiselect v-model="engine" :options="['Бензин', 'Дизель', 'Электро']" placeholder="Любой" mode="tags"
+            class="multiselect-blue" />
+        </div>
 
-
-        <label class="block mb-2 text-sm font-medium text-gray-900 mt-2 ">Цвет:</label>
-        <div class="flex items-center inline-flex mr-2 " v-for="color, index in colors">
-          <input v-model="colorsVM" :value="color" type="checkbox"
-            class="w-4 h-4 text-gray-600 border-gray-300 rounded">
-          <label class="ms-2 text-sm font-medium text-gray-900">{{ color }}</label>
+        <div class="min-w-48 mt-2 mr-2 inline-block">
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900">Цвет:</label>
+          <Multiselect v-model="colorsVM"
+            :options="['Черный', 'Красный', 'Серый', 'Белый', 'Коричневый', 'Синий', 'Серебристый']" placeholder="Любой"
+            mode="tags" class="multiselect-blue" />
         </div>
       </a>
     </div>
@@ -102,7 +106,7 @@
       </h5>
 
       <p class="text-sm text-gray-500 ml-4 mr-4">{{ main.year }}г. / {{ main.power }}л.с. / {{ main.engine }} / {{
-              main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
+            main.transmission }} / {{ main.kuzov }} / {{ main.color }}</p>
 
       <div class="flex flex-col items-center h-48">
         <img class=" rounded-t-lg " v-bind:src="main.image[1]" />
@@ -139,7 +143,7 @@
             <button type="button"
               class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 ">
               {{
-              cartStore.cart[cartStore.compare[main.id]].amount }}
+            cartStore.cart[cartStore.compare[main.id]].amount }}
             </button>
 
             <button type="button"
@@ -160,8 +164,8 @@
 
           <a v-else @click="deleteFavourite(cartStore.simile[main.id]), syncSimile()"
             class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "><svg
-              class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              fill="currentColor" viewBox="0 0 24 24">
               <path
                 d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z" />
             </svg>
@@ -172,56 +176,135 @@
 
 
 
-    <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages">
-    </FwbPagination>
+    <!-- <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages">
+    </FwbPagination> -->
 
+
+
+
+
+
+
+
+
+
+    <nav aria-label="Page navigation example">
+      <ul class="flex items-center -space-x-px h-10 text-base max-w-32 mx-auto ">
+        <li>
+          <a @click="ffLeft(), ffColor()"
+            class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">
+            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 1 1 5l4 4" />
+            </svg>
+          </a>
+        </li>
+        <li v-for="page, index in totalPages">
+          <a @click="currentPage = page, ffColor()" :class="{ 'bg-blue-50': color[index] }"
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{{ page }}</a>
+        </li>
+        <li>
+          <a  @click="ffRight(), ffColor()"
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 ">
+            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+              viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 9 4-4-4-4" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </main>
-
 </template>
 
 
 <script setup>
 import { useCart } from '../store/carStore'
 import { FwbPagination } from 'flowbite-vue'
+import db from '../db.json'
+const runtimeConfig = useRuntimeConfig()
+const cartStore = useCart();
+
+
+
+const currentPage = ref(1)
+const totalPages = ref([])
+
+
+function ffPage() {
+  for (let i = 1; i < Math.ceil(db.products.length / 10) + 1; i++) {
+    totalPages.value.push(i)
+  }
+}
+ffPage()
+
+
+const color = ref([])
+function ffColor(){
+  color.value = []
+  for(let i=0; i < totalPages.value.length; i++){
+    if (totalPages.value[i] === currentPage.value){
+    color.value.push(true)}
+  else {
+    color.value.push(false)}
+  }
+}
+
+ffColor()
+
+
+function ffRight(){
+  if(currentPage.value === totalPages.value[totalPages.value.length - 1]){
+  }
+  else {
+    currentPage.value = currentPage.value + 1
+  }
+}
+
+
+function ffLeft(){
+  if(currentPage.value === 1){
+  }
+  else {
+    currentPage.value = currentPage.value - 1
+  }
+}
 
 
 const otPrice = ref()
 const doPrice = ref()
 const otPriceVM = ref(2000000)
 const doPriceVM = ref(12000000)
-
-
 const sliderPrice = ref([2000000, 12000000])
 function ffSliderPrice() {
   otPrice.value = String(sliderPrice.value[0])
   doPrice.value = String(sliderPrice.value[1])
 }
-
-
 watch(otPrice, () => {
-  console.log(otPrice)
+
   otPrice.value = Number(otPrice.value.replace(/\D/g, '')).toLocaleString();
   otPriceVM.value = (Number(otPrice.value.replace(/\D/g, '')))
   searchPush(), update()
 })
-
 watch(doPrice, () => {
   doPrice.value = Number(doPrice.value.replace(/\D/g, '')).toLocaleString();
   doPriceVM.value = (Number(doPrice.value.replace(/\D/g, '')))
   searchPush(), update()
 })
 
-const runtimeConfig = useRuntimeConfig()
-const cartStore = useCart();
-
 
 const powerVM = ref([100, 550])
 const colorsVM = ref([])
-const currentPage = ref(1)
+
 const kpp = ref([])
-const engine = ref("Любой")
+const kuzov = ref([])
+const engine = ref([])
 const mainInfo = ref(0)
-const totalPages = ref(3)
+
+const brands = ref()
+const model = ref()
 
 const sliderPower = ref([100, 550])
 function ffSliderPower() {
@@ -229,26 +312,63 @@ function ffSliderPower() {
   powerVM.value[1] = sliderPower.value[1]
 }
 
-let colors = ["Черный", "Красный", "Серый", "Белый", "Коричневый", "Синий", "Серебристый"]
+const compareBrands = ref({})
+const optionsBrands = ref()
+
+
+function ffOptions() {
+  const data = db.products
+  let brand = []
+  for (let i = 0; i < db.products.length; i++) {
+    brand.push(data[i].brand)
+
+  }
+  optionsBrands.value = [...new Set(brand)]
+  for (let i = 0; i < optionsBrands.value.length; i++) { // Brand : []
+    compareBrands.value[optionsBrands.value[i]] = []
+  }
+  for (let i = 0; i < db.products.length; i++) { // Brand : ['Model1', 'Model2', ...]
+    compareBrands.value[data[i].brand].push(data[i].model)
+  }
+}
+ffOptions()
+
+
+
+
+
 let search = []
 function searchPush() { //строка поиска
+
   search = []
   for (let i = 0; i < colorsVM.value.length; i++) {
     search.push("&color=" + colorsVM.value[i])
   }
   search.push("&power_gte=" + powerVM.value[0] + "&power_lte=" + powerVM.value[1])
   search.push("&price_gte=" + otPriceVM.value + "&price_lte=" + doPriceVM.value)
-
-  if (engine.value != "Любой") {
-    search.push("&engine=" + engine.value)
+  for (let i = 0; i < engine.value.length; i++) {
+    search.push("&engine=" + engine.value[i])
   }
-
   for (let i = 0; i < kpp.value.length; i++) {
     search.push("&transmission=" + kpp.value[i])
   }
-  console.log(search)
-}
+  for (let i = 0; i < kpp.value.length; i++) {
+    search.push("&transmission=" + kpp.value[i])
+  }
+  for (let i = 0; i < kuzov.value.length; i++) {
+    search.push("&kuzov=" + kuzov.value[i])
+  }
 
+  if (brands.value != undefined) {
+    search.push("&brand=" + brands.value)
+  }
+
+  if (model.value != undefined || model.value != null) {
+    search.push("&model=" + model.value)
+  }
+  console.log(search)
+  console.log(model)
+}
 
 
 async function update() {
@@ -284,7 +404,7 @@ async function update() {
 }
 
 
-watch([colorsVM, powerVM.value, kpp, engine], () => {
+watch([colorsVM, powerVM.value, kuzov, kpp, brands, engine, model], () => {
   searchPush(), update()
 })
 watch(cartStore.cart, () => {
@@ -292,6 +412,10 @@ watch(cartStore.cart, () => {
 })
 watch(currentPage, () => {
   update()
+})
+
+watch(brands, () => {
+  model.value = undefined
 })
 await update()
 syncCompare()
@@ -320,21 +444,6 @@ function deleteFavourite(index) {
 </script>
 
 
-<style scoped>
-.slider-demo-block {
-  display: flex;
-  align-items: center;
-  max-width: 350px;
-}
-
-.slider-demo-block .el-slider {
-  margin-top: 0;
-  margin-left: 15px;
-  margin-right: 6px;
-}
-</style>
-
-
 <style>
 .slider-blue {
   --slider-connect-bg: #1a56db;
@@ -344,7 +453,7 @@ function deleteFavourite(index) {
   --slider-handle-bg: #1a56db;
   --slider-handle-width: 13px;
   --slider-handle-height: 13px;
-  
+
 }
 
 .multiselect-blue {
@@ -352,44 +461,22 @@ function deleteFavourite(index) {
   --ms-tag-color: #2563EB;
   --ms-border-color-active: #0066ff;
   --ms-radius: 8px;
+  --ms-ring-color: disabled;
+  --ms-option-bg-selected: #0066ff;
+  --ms-option-bg-selected-pointed: #3988fd;
 }
 </style>
-
-
 <style src="@vueform/multiselect/themes/default.css"></style>
 <style src="@vueform/slider/themes/default.css"></style>
-
 <script>
 import Multiselect from '@vueform/multiselect'
-
-
-
 import Slider from '@vueform/slider'
+import src from '@vueform/multiselect'
+import { sr } from 'element-plus/es/locale'
 export default {
   components: { Slider },
-  data: () => ({
-    value: [20, 40]
-  }),
-
   components: {
     Multiselect,
   },
-  data() {
-    return {
-      value: null,
-      options: [
-        'АКПП',
-        'МКПП',
-        'Вариатор',
-      ]
-    }
-  }
-
-
 }
-
-
-
-
-
 </script>
