@@ -141,10 +141,10 @@
       <div class="flex flex-col items-center pb-10">
         <div class="flex mt-4 md:mt-6">
 
-          <a v-if="cartStore.compare[main.id] == -1"
+          <button v-if="cartStore.compare[main.id] == -1"
             @click=" addToCart(main), syncCompare(), cartStore.cart[cartStore.compare[main.id]].amount++"
             class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">В
-            корзину</a>
+            корзину</button>
 
           <div v-else class="inline-flex rounded-md shadow-sm" role="group">
 
@@ -175,23 +175,23 @@
             </button>
           </div>
 
-          <a v-if="cartStore.simile[main.id] == -1" @click="addToFavourite(main), syncSimile()"
+          <button v-if="cartStore.simile[main.id] == -1" @click="addToFavourite(main), syncSimile()"
             class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "><svg
               class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
               fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
             </svg>
-          </a>
+          </button>
 
-          <a v-else @click="deleteFavourite(cartStore.simile[main.id]), syncSimile()"
+          <button v-else @click="deleteFavourite(cartStore.simile[main.id]), syncSimile()"
             class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 "><svg
               class="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
               fill="currentColor" viewBox="0 0 24 24">
               <path
                 d="m12.75 20.66 6.184-7.098c2.677-2.884 2.559-6.506.754-8.705-.898-1.095-2.206-1.816-3.72-1.855-1.293-.034-2.652.43-3.963 1.442-1.315-1.012-2.678-1.476-3.973-1.442-1.515.04-2.825.76-3.724 1.855-1.806 2.201-1.915 5.823.772 8.706l6.183 7.097c.19.216.46.34.743.34a.985.985 0 0 0 .743-.34Z" />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -213,28 +213,28 @@
     <nav aria-label="Page navigation example">
       <ul class="flex items-center -space-x-px h-10 text-base max-w-32 mx-auto ">
         <li>
-          <a @click="ffLeft(), ffColor()"
+          <button @click="ffLeft(), ffColor()"
             class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">
             <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
               viewBox="0 0 6 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M5 1 1 5l4 4" />
             </svg>
-          </a>
+          </button>
         </li>
         <li v-for="page, index in totalPages">
-          <a  :class="{ 'bg-blue-50': color[index] }" @click="currentPage = page, ffColor()"
-            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{{ page }}</a>
+          <button  :class="{ 'bg-blue-50': color[index] }" @click="currentPage = page, ffColor()"
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 border border-gray-300 hover:bg-gray-100 hover:text-gray-700">{{ page }}</button>
         </li>
         <li>
-          <a  @click="ffRight(), ffColor()"
+          <button  @click="ffRight(), ffColor()"
             class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 ">
             <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
               viewBox="0 0 6 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="m1 9 4-4-4-4" />
             </svg>
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
