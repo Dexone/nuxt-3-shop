@@ -85,7 +85,7 @@
 
 
         <form class="max-w-sm inline-block mr-2">
-          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Цена:</label>
+          <label class="block mb-2 text-sm font-medium text-gray-900">Цена:</label>
 
           <div>
             <Slider :tooltips="false" v-model="sliderPrice" @input="ffSliderPrice()" class="slider-blue ml-5 mr-5"
@@ -143,8 +143,7 @@
 
           <button v-if="cartStore.compare[main.id] == -1"
             @click=" addToCart(main), syncCompare(), cartStore.cart[cartStore.compare[main.id]].amount++"
-            class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">В
-            корзину</button>
+            class="inline-flex items-center px-10 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Купить</button>
 
           <div v-else class="inline-flex rounded-md shadow-sm" role="group">
 
@@ -198,8 +197,7 @@
 
 
 
-    <!-- <FwbPagination id="fwb-pagination" v-model="currentPage" :totalPages="totalPages">
-    </FwbPagination> -->
+
 
 
 
